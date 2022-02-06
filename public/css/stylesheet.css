@@ -1,11 +1,11 @@
-/* Navbar container */
+
 .navbar {
     overflow: hidden;
     background-color: crimson;
     font-family: Arial;
   }
   
-  /* Links inside the navbar */
+  
   .navbar a {
     float: left;
     font-size: 16px;
