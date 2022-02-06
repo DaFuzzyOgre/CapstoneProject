@@ -1,7 +1,7 @@
 
 .navbar {
     overflow: hidden;
-    background-color: crimson;
+    background-color: rgb(146, 4, 32);
     font-family: Arial;
   }
   
@@ -14,13 +14,13 @@
     padding: 14px 16px;
     text-decoration: none;
   }
-
   .h1 {
     color:white;
   }
-  
+
  
   .navbar a:hover {
     background-color: #ccc;
     color: crimson;
   }
+  
