@@ -3,8 +3,12 @@
 
 <head>
   <title>Reservations</title>
+  <!-- this is so rivets will work for the dropdowns and buttons -->
   <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta/css/rivet.min.css">
+
+  <!-- this links our style sheet to the page -->
   <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
+
   <style>
     img 
     {  
@@ -14,7 +18,9 @@
     }
   </style>
 </head>
-<header>  
+
+<header>
+  <!-- nav bar -->  
   <div class="navbar">
     <div>
       <a href="https://www.iuk.edu/library/">
@@ -31,12 +37,15 @@
     <a href="https://iuk.libguides.com/citation-managementCitation">Management</a>>
   </div>
 </header>
+
 <body>
+  <!-- required for rivets to work where compenents are being pulled -->
   <script src="https://unpkg.com/rivet-core@2.0.0-beta/js/rivet.min.js"></script>
   <script>Rivet.init();</script>
   
   <h1>Study Room Reservations</h1>
 
+  <!-- dropdown for selecting a date -->
   <div class="rvt-dropdown" data-rvt-dropdown="dropdownDate">
     <button type="button" class="rvt-button rvt-button" data-rvt-dropdown-toggle="dropdownDate" aria-haspopup="true" aria-expanded="false">
       <span class="rvt-dropdown__toggle-text">Please select a date</span>
@@ -49,8 +58,60 @@
       <a href="#" aria-current="page">Item two</a>
       <a href="#">Item three</a>
     </div>
-  </div> <br></br>
+  </div> 
+  
+  <br></br>
 
+  <!-- dropdown for selecting a time -->
+  <div class="rvt-dropdown" data-rvt-dropdown="dropdownTime">
+    <button type="button" class="rvt-button rvt-button" data-rvt-dropdown-toggle="dropdownTime" aria-haspopup="true" aria-expanded="false">
+      <span class="rvt-dropdown__toggle-text">Please select a time</span>
+      <svg aria-hidden="true" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
+      </svg>
+    </button>
+    <div class="rvt-dropdown__menu" id="dropdownTime" hidden data-rvt-dropdown-menu>
+      <a href="#">Item one</a>
+      <a href="#" aria-current="page">Item two</a>
+      <a href="#">Item three</a>
+    </div>
+  </div> 
+  
+  <br></br>  
+  
+    <!-- dropdown for selecting a time -->
+    <div class="rvt-dropdown" data-rvt-dropdown="dropdownTime">
+      <button type="button" class="rvt-button rvt-button" data-rvt-dropdown-toggle="dropdownTime" aria-haspopup="true" aria-expanded="false">
+        <span class="rvt-dropdown__toggle-text">Please select a time</span>
+        <svg aria-hidden="true" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
+        </svg>
+      </button>
+      <div class="rvt-dropdown__menu" id="dropdownTime" hidden data-rvt-dropdown-menu>
+        <a href="#">Item one</a>
+        <a href="#" aria-current="page">Item two</a>
+        <a href="#">Item three</a>
+      </div>
+    </div> 
+    
+    <br></br>
+
+      <!-- dropdown for selecting a room -->
+  <div class="rvt-dropdown" data-rvt-dropdown="dropdownTime">
+    <button type="button" class="rvt-button rvt-button" data-rvt-dropdown-toggle="dropdownTime" aria-haspopup="true" aria-expanded="false">
+      <span class="rvt-dropdown__toggle-text">Please select a time</span>
+      <svg aria-hidden="true" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
+      </svg>
+    </button>
+    <div class="rvt-dropdown__menu" id="dropdownTime" hidden data-rvt-dropdown-menu>
+      <a href="#">Item one</a>
+      <a href="#" aria-current="page">Item two</a>
+      <a href="#">Item three</a>
+    </div>
+  </div> 
+  
+  <br></br>
   <a href="/studentinfo">Insert Go Button Here</a> </body>
 
 </body>
