@@ -28,6 +28,9 @@ app.get("/confirmation", function(req,res){
 app.get("/cancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/cancelation.html"));
 });
+app.get("/confirmcancelation", function(req,res){
+  res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
+});
 
 // setup http server to listen on HTTP_PORT
 app.listen(HTTP_PORT, onHttpStart);
