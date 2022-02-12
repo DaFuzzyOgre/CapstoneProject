@@ -25,6 +25,9 @@ app.get("/studentinfo", function(req,res){
 app.get("/confirmation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmation.html"));
 });
+app.get("/cancelation", function(req,res){
+  res.sendFile(path.join(__dirname,"/views/cancelation.html"));
+});
 
 // setup http server to listen on HTTP_PORT
 app.listen(HTTP_PORT, onHttpStart);
