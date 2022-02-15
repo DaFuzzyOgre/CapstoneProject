@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Reservations</title>
+  <title>Study Room Reservation</title>
   <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
   <style>
     img 
@@ -31,10 +31,22 @@
   </div>
 </header>
 <body>
-  <h1>Student Info</h1>
-
-  <a href="/confirmation">Put Confirmation Button here</a>
+  <h1>Study Room Reservations</h1>
+  <h2>Student Information</h2>
+  <p>Please enter the following information:</p>
+<form>
+  <label for="name">First and Last Name</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="idnum">Student ID Number</label><br>
+  <input type="text" id="idnum" name="idnum"><br><br>
+  <label for="email"></label>IU Email Address<br>
+  <input type="text" id="email" name="email"><br><br>
+  <label for="reservation">Reservation Name (To Appear on Door)</label><br>
+  <input type="text" id="reservation" name="reservation"><br><br>
+  <button><a href="/confirmation">Submit<nput type="submit" value="Go"></a></button>
+</form>
 </body>
-<footer>&copy;Ogre, Inc</footer>
+<br/>
+<footer>&copy; Ogres, Inc</footer>
 
 </html>
