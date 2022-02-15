@@ -18,6 +18,18 @@
     color:white;
   }
 
+  h1 {
+    font-family: Arial;
+  }
+
+  h2{
+    font-family: Arial;
+  }
+
+  button {
+    color: green;
+    font-family: Arial;
+  }
  
   .navbar a:hover {
     background-color: #ccc;
