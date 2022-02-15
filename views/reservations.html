@@ -3,17 +3,37 @@
 
 <head>
   <title>Reservations</title>
+  <!-- this is so rivets will work for the dropdowns and buttons -->
+  <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta/css/rivet.min.css">
+
+  <!-- this links our style sheet to the page -->
   <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
+
   <style>
-    img 
-    {  
+    img {
       float:left;
-    width: 50px;  
-    height: 50px;  
+      width: 50px;  
+      height: 50px;
+      }
+
+    h1 {
+      font-size: xx-large;
+      font-weight: bold;
+      }
+
+    body{
+      text-align: center;
+      font-size: medium;
+    }
+
+    div{
+      text-align: center;
     }
   </style>
 </head>
-<header>  
+
+<header>
+  <!-- nav bar -->  
   <div class="navbar">
     <div>
       <a href="https://www.iuk.edu/library/">
@@ -30,11 +50,59 @@
     <a href="https://iuk.libguides.com/citation-managementCitation">Management</a>>
   </div>
 </header>
-<body>
-  <h1>Study Room Reservations</h1>
 
-  <a href="/studentinfo">Insert Go Button Here</a>
+<body>
+  <!-- required for rivets to work where compenents are being pulled -->
+  <script src="https://unpkg.com/rivet-core@2.0.0-beta/js/rivet.min.js"></script>
+  <script>Rivet.init();</script>
+  
+  <h1>Study Room Reservation</h1> <br></br>
+
+  <!-- input text box for date -->
+  <div>
+    <label for="text-input-default" class="rvt-label">Please enter the date you want to reserve a study room for:</label>
+    <input type="text" id="text-input-default" style="width: 200px; margin:auto;" placeholder="mm/dd/yy" class="rvt-text-input">
+  </div>
+
+  <br></br>
+
+  <!-- dropdown for selecting a time -->
+  <label for="select-input-default=Time" class="rvt-label">Please select a time:</label>
+  <select id="select-input-default-Time" style="width: 200px; margin:auto;" class="rvt-select">
+    <option value="starter">Select a time</menu>
+    <option value="time 1">Time 1</option>
+    <option value="time 2">Time 2</option>
+    <option value="time 3">Time 3</option>
+    <option value="time 4">Time 4</option>
+  </select>
+  
+  <br></br>  
+
+      <!-- dropdown for selecting a room -->
+      <label for="select-input-default-Room" class="rvt-label">Please select a room:</label>
+      <select id="select-input-default-Room" style="width: 200px; margin:auto;" class="rvt-select">
+        <option value="starter">Select a room</menu>
+        <option value="First floor">KA116</option>
+        <option value="First floor">KA118</option>
+        <option value="First floor">KA147</option>
+        <option value="First floor">KA149</option>
+        <option value="First floor">KA155</option>
+        <option value="First floor">KA157</option>
+        <option value="Second floor">KA220</option>
+        <option value="Second floor">KA222</option>
+        <option value="Second floor">KA224</option>
+        <option value="Second floor">KA226</option>
+      </select>
+  
+  <br></br>
+
+  <!-- go back to home page and continue buttons -->
+  <div>
+    <a href = "/"><button class="rvt-button">Go back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a>
+  </div>
+
 </body>
+
 <footer>&copy;Ogre, Inc</footer>
 
 </html>
