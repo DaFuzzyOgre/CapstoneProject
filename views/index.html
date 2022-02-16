@@ -97,13 +97,20 @@
 
     <!--Main content area-->
 
-<main id="main-content" class="rvt-layout__wrapper">
-    
-    <p><a href="/reservations">RESERVATION PAGE</a>
-        <a href="/cancelation">CANCELATION PAGE</a>
-      </p>
-
-</main>
+    <body>
+        <!-- required for rivets to work where compenents are being pulled -->
+        <script src="https://unpkg.com/rivet-core@2.0.0-beta/js/rivet.min.js"></script>
+        <script>Rivet.init();</script>
+        
+        <h1>Welcome Page</h1> <br></br>
+      
+        <!-- input text box for date -->
+        
+        <div>
+          <a href = "/reservations"><button class="rvt-button">Reservations</button></a> <a href="/cancellation"><button class="rvt-button rvt-button--success">Cancel </button></a>
+        </div>
+      
+      </body>
 
 
 
