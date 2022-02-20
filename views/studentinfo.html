@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Student Info</title>
+    <title>Study Room Reservation</title>
     <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
   </head>
@@ -89,6 +89,28 @@
               </div>
           </div>
       </div>
+      <style>
+        img {
+          float:left;
+          width: 50px;  
+          height: 50px;
+          }
+    
+        h1 {
+          font-size: xx-large;
+          font-weight: bold;
+          }
+    
+        body{
+          text-align: center;
+          font-size: medium;
+        }
+    
+        div{
+          text-align: center;
+        }
+}
+      </style>
   </header>
 
   <body>
@@ -96,16 +118,18 @@
     <h2>Student Information</h2>
     <p>Please enter the following information:</p>
   <form>
-    <label for="name">First and Last Name</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="idnum">Student ID Number</label><br>
-    <input type="text" id="idnum" name="idnum"><br><br>
-    <label for="email"></label>IU Email Address<br>
-    <input type="text" id="email" name="email"><br><br>
-    <label for="reservation">Reservation Name (To Appear on Door)</label><br>
-    <input type="text" id="reservation" name="reservation"><br><br>
-    <button><a href="/confirmation">Submit<nput type="submit" value="Go"></a></button>
-  </form>
+    <label for="name" class="rvt-label">First and Last Name</label><br>
+    <input type="text" id="name" name="name" class="rvt-label" placeholder="John Doe" maxlength=30 required><br>
+    <br/>
+    <label for="idnum" class="rvt-label">Student ID Number</label><br>
+    <input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10 required><br><br>
+    <label for="email" class="rvt-label"></label>IU Email Address<br>
+    <input type="text" id="email" name="email" class="rvt-label" placeholder="student@iu.edu" required> <br><br>
+    <label for="reservation" class="rvt-label">Reservation Name (To Appear on Door)</label><br>
+    <input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="John Doe" required><br><br>
+    <a href = "/reservations"><button class="rvt-button">Go Back </button></a>  <a href="/confirmation"><button class="rvt-button rvt-button--success">Submit </button></a>  
+    <br/>
+</form>
   </body>
 
     <footer class="rvt-footer-base">

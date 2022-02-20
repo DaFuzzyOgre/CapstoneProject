@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
-  <title>Reservations</title>
+  <title>Study Room Reservation</title>
   <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
   <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
   <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
@@ -104,18 +104,17 @@
       h1 {
         font-size: xx-large;
         font-weight: bold;
-        text-align: center;
         }
   
-      .rvt-label{
+      body{
         text-align: center;
-        margin: auto;
+        font-size: medium;
       }
-
-      button{
-          text-align: center;
+  
+      div{
+        text-align: center;
       }
-
+}
     </style>
 </header>
 
@@ -123,49 +122,47 @@
 
 
 <body>
-  <!-- required for rivets to work where compenents are being pulled -->
-  <script src="https://unpkg.com/rivet-core@2.0.0-beta/js/rivet.min.js"></script>
-  <script>Rivet.init();</script>
+  <h1>Study Room Reservations</h1>
+  <h2>Room Information</h2>
+  <p>Please enter the following information:</p>
+
+  <form>
+    <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
+    <input type="date" id="date" name="date" class="rvt-label" required><br></br>
+
+  <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
+  <input type="time" id="time" name="time" class="rvt-label" required><br></br>
+ 
+  <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
+      <input list="numpeople" name="numpeople" placeholder="Select people in reservation" required><br></br>
+      <datalist id="numpeople">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        </datalist>
   
-  <h1>Study Room Reservation</h1> <br></br>
-
-  <!-- input text box for date -->
-  <div>
-    <label for="text-input-default" style="text-align:center;" class="rvt-label">Please enter the date you want to reserve a study room for:</label>
-    <input type="text" id="text-input-default" style="width: 200px; margin:auto;" placeholder="mm/dd/yy" class="rvt-text-input">
-  </div>
-
-  <!-- dropdown for selecting a time -->
-  <label for="select-input-default=Time" class="rvt-label">Please select a time:</label>
-  <select id="select-input-default-Time" style="width: 200px; margin:auto;" class="rvt-select">
-    <option value="starter">Select a time</menu>
-    <option value="0830">8:30 AM</option>
-    <option value="1100">11:00 AM</option>
-    <option value="1400">2:00 PM</option>
-    <option value="1700">5:00 PM</option>
-  </select>
-    
-      <!-- dropdown for selecting a room -->
-      <label for="select-input-default-Room" class="rvt-label">Please select a room:</label>
-      <select id="select-input-default-Room" style="width: 200px; margin:auto;" class="rvt-select">
-        <option value="starter">Select a room</menu>
-        <option value="First floor">KA116</option>
-        <option value="First floor">KA118</option>
-        <option value="First floor">KA147</option>
-        <option value="First floor">KA149</option>
-        <option value="First floor">KA155</option>
-        <option value="First floor">KA157</option>
-        <option value="Second floor">KA220</option>
-        <option value="Second floor">KA222</option>
-        <option value="Second floor">KA224</option>
-        <option value="Second floor">KA226</option>
-      </select>
-
-  <!-- go back to home page and continue buttons -->
-  <div>
-    <a href = "/"><button class="rvt-button" style="margin:auto;">Go back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a>
-  </div>
-
+      <label for="studyrooms" class="rvt-label">Select a study room number:</label><br>
+      <input list="studyrooms" name="studyrooms" placeholder="Select a study room" required><br></br>
+      <datalist id="studyrooms">
+        <option value="KA116">
+        <option value="KA118">
+        <option value="KA147">
+        <option value="KA149">
+        <option value="KA155">
+        <option value="KA157">
+        <option value="KA220">
+        <option value="KA222">
+        <option value="KA224">
+        <option value="KA226">
+        </datalist>
+        <a href = "/"><button class="rvt-button">Go Back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a><br><br>
+    </br>
+  </form>
 </body>
 
 <footer class="rvt-footer-base">
