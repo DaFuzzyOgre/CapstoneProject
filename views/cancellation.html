@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
         <title>Student Info</title>
-        <<link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <link rel="shortcut icon" type="image/jpg" href="/Users/jeanredfern/Documents/IUK Spring 2022/Dev & Design/CapstoneProject/views/images/favicon.jpg"/>
         <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
       </head>
       <body class="rvt-layout">
@@ -87,16 +87,37 @@
                   </div>
               </div>
           </div>
+          <style>
+          img {
+            float:left;
+            width: 50px;  
+            height: 50px;
+            }
+      
+          h1 {
+            font-size: xx-large;
+            font-weight: bold;
+            }
+      
+          body{
+            text-align: center;
+            font-size: medium;
+          }
+      
+          div{
+            text-align: center;
+          }
+        </style>
       </header>
 <body>
-  <h1>STUDY ROOM RESERVATIONS</h1>
+  <h1>STUDY ROOM CANCELLATION</h1>
 <p>To cancel your study room reservation, enter the following information<br>
    and click "Confirm". If you do NOT wish to cancel your study room<br>
     reservation click "Return to Home."</p>
   <p>STUDENT ID NUMBER: </p>
-  <form><input type="text" size ="10" maxlength="10"></form>
+  <form><input type="text" size = "10" minlength ="10" maxlength="10"></form><br>
   <p>CONFIRMATION NUMBER: </p>
-  <form><input type="text" size ="10" maxlength="10"></form><br>
+  <form><input type="text" size = "10" minlength = "7" maxlength="7"></form><br>
   <a href="/confirmcancelation"><button class ="button">CONFIRM</button></a>
   <a href="/"><button class ="button">RETURN TO HOME</button></a>
 </body>
@@ -104,7 +125,6 @@
 
 <!-- **************************************************************************
     Footer: Copyright
-
     -> v2.rivet.iu.edu/docs/components/footer/
 **************************************************************************** -->
 
