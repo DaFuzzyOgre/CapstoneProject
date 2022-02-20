@@ -104,16 +104,18 @@
       h1 {
         font-size: xx-large;
         font-weight: bold;
+        text-align: center;
         }
   
-      body{
+      .rvt-label{
         text-align: center;
-        font-size: medium;
+        margin: auto;
       }
-  
-      div{
-        text-align: center;
+
+      button{
+          text-align: center;
       }
+
     </style>
 </header>
 
@@ -129,24 +131,20 @@
 
   <!-- input text box for date -->
   <div>
-    <label for="text-input-default" class="rvt-label">Please enter the date you want to reserve a study room for:</label>
+    <label for="text-input-default" style="text-align:center;" class="rvt-label">Please enter the date you want to reserve a study room for:</label>
     <input type="text" id="text-input-default" style="width: 200px; margin:auto;" placeholder="mm/dd/yy" class="rvt-text-input">
   </div>
-
-  <br></br>
 
   <!-- dropdown for selecting a time -->
   <label for="select-input-default=Time" class="rvt-label">Please select a time:</label>
   <select id="select-input-default-Time" style="width: 200px; margin:auto;" class="rvt-select">
     <option value="starter">Select a time</menu>
-    <option value="time 1">Time 1</option>
-    <option value="time 2">Time 2</option>
-    <option value="time 3">Time 3</option>
-    <option value="time 4">Time 4</option>
+    <option value="0830">8:30 AM</option>
+    <option value="1100">11:00 AM</option>
+    <option value="1400">2:00 PM</option>
+    <option value="1700">5:00 PM</option>
   </select>
-  
-  <br></br>  
-
+    
       <!-- dropdown for selecting a room -->
       <label for="select-input-default-Room" class="rvt-label">Please select a room:</label>
       <select id="select-input-default-Room" style="width: 200px; margin:auto;" class="rvt-select">
@@ -162,12 +160,10 @@
         <option value="Second floor">KA224</option>
         <option value="Second floor">KA226</option>
       </select>
-  
-  <br></br>
 
   <!-- go back to home page and continue buttons -->
   <div>
-    <a href = "/"><button class="rvt-button">Go back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a>
+    <a href = "/"><button class="rvt-button" style="margin:auto;">Go back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a>
   </div>
 
 </body>
@@ -201,5 +197,3 @@
 <script>
 Rivet.init();
 </script>
-
-
