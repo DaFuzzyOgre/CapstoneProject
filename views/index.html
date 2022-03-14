@@ -1,114 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
-  <title>Scheduler</title>
-  <link rel="shortcut icon" type="image/jpg" href="/Users/jeanredfern/Documents/IUK Spring 2022/Dev & Design/CapstoneProject/views/images/favicon.jpg"/>
-  <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
-</head>
-<body class="rvt-layout">
-
-<header class="rvt-header-wrapper">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Home</title>
+    <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
+  </head>
+  <body class="rvt-layout">
+  
+  <header class="rvt-header-wrapper">
+      
+      <!-- **********************************************************************
+          "Skip to main content" link for keyboard users
+      *********************************************************************** -->
+  
+      <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+      
+      <!-- **********************************************************************
+          Global header area
+      *********************************************************************** -->
+      
+      <div class="rvt-header-global">
+          <div class="rvt-container-lg">
+              <div class="rvt-header-global__inner">
+                  <div class="rvt-header-global__logo-slot">
+                      <a class="rvt-lockup" href="/">
+                          
+                          
+  
+                          <div class="rvt-lockup__tab">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+                                  <path fill="currentColor" d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z"></path>
+                              </svg>
+                          </div>
+  
+                          
+  
+                          <div class="rvt-lockup__body">
+                              <span class="rvt-lockup__title">Study Room Scheduler</span>
+                              <span class="rvt-lockup__subtitle">Indiana University Kokomo</span>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="rvt-header-global__controls" data-rvt-disclosure="menu">
+                      <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="menu">
+                          <span class="rvt-sr-only">Menu</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" viewBox="0 0 16 16">
+                              <g fill="currentColor">
+                                  <path d="M15,3H1A1,1,0,0,1,1,1H15a1,1,0,0,1,0,2Z"></path>
+                                  <path d="M15,9H1A1,1,0,0,1,1,7H15a1,1,0,0,1,0,2Z"></path>
+                                  <path d="M15,15H1a1,1,0,0,1,0-2H15a1,1,0,0,1,0,2Z"></path>
+                              </g>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__close" fill="currentColor" viewBox="0 0 16 16">
+                              <path d="M8.46954 7.00409L13.7595 1.71409C13.9234 1.52279 14.009 1.27671 13.9993 1.02504C13.9895 0.773362 13.8852 0.534623 13.7071 0.356528C13.529 0.178434 13.2903 0.0741014 13.0386 0.0643803C12.7869 0.0546591 12.5408 0.140265 12.3495 0.304092L7.05954 5.59409L1.76954 0.294092C1.58124 0.105788 1.32585 -3.72428e-09 1.05954 -1.74018e-09C0.793242 2.43924e-10 0.537847 0.105788 0.349544 0.294092C0.16124 0.482395 0.055452 0.73779 0.055452 1.00409C0.055452 1.27039 0.16124 1.52579 0.349544 1.71409L5.64954 7.00409L0.349544 12.2941C0.244862 12.3837 0.159841 12.4941 0.0998179 12.6181C0.0397946 12.7422 0.00606467 12.8773 0.000745174 13.015C-0.00457432 13.1528 0.0186315 13.2901 0.0689061 13.4184C0.119181 13.5467 0.195439 13.6633 0.292893 13.7607C0.390348 13.8582 0.506896 13.9345 0.635221 13.9847C0.763546 14.035 0.900878 14.0582 1.0386 14.0529C1.17632 14.0476 1.31145 14.0138 1.43551 13.9538C1.55958 13.8938 1.6699 13.8088 1.75954 13.7041L7.05954 8.41409L12.3495 13.7041C12.5408 13.8679 12.7869 13.9535 13.0386 13.9438C13.2903 13.9341 13.529 13.8297 13.7071 13.6517C13.8852 13.4736 13.9895 13.2348 13.9993 12.9831C14.009 12.7315 13.9234 12.4854 13.7595 12.2941L8.46954 7.00409Z" fill="currentColor"></path>
+                          </svg>
+                      </button>
+  
+                      
+  
+                      <nav aria-label="Main" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
+                          <ul class="rvt-header-menu__list">
+                              <li class="rvt-header-menu__item">
+                                  <a class="rvt-header-menu__link" href="https://iuk.libguides.com/?b=g&d=a">LibGuides</a>
+                              </li>
+                              <li class="rvt-header-menu__item">
+                                  <a class="rvt-header-menu__link" href="https://iucat.iu.edu/iuk">Catalog Search</a>
+                              </li>
+                              <li class="rvt-header-menu__item">
+                                  <a class="rvt-header-menu__link" href="https://proxyko.uits.iu.edu/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=eds">EDS Search</a>
+                              </li>
+                              <li class="rvt-header-menu__item">
+                                  <a class="rvt-header-menu__link" href="https://www.iuk.edu/library/find-borrow-request/requests-and-interlibrary-loan/">Interlibrary Loan</a>
+                              </li>
+                              <li class="rvt-header-menu__item">
+                                  <a class="rvt-header-menu__link" href="https://www.iuk.edu/library/about/staff/index.html">Contact</a>
+                              </li>
+                              <li class="rvt-header-menu__item">
+                                  <a class="rvt-header-menu__link" href="https://iuk.libguides.com/citation-management">Citation Management</a>
+                              </li>
+                          </ul>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <style>
+        img {
+          float:left;
+          width: 50px;  
+          height: 50px;
+          }
     
-    <!-- **********************************************************************
-        "Skip to main content" link for keyboard users
-    *********************************************************************** -->
-
-    <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+        h1 {
+          font-size: xx-large;
+          font-weight: bold;
+          }
     
-    <!-- **********************************************************************
-        Global header area
-    *********************************************************************** -->
+        body{
+          text-align: center;
+          font-size: medium;
+        }
     
-    <div class="rvt-header-global">
-        <div class="rvt-container-lg">
-            <div class="rvt-header-global__inner">
-                <div class="rvt-header-global__logo-slot">
-                    <a class="rvt-lockup" href="/">
-                        
-                        <!-- **************************************************
-                            Trident logo
-                        *************************************************** -->
-                        
-                        <div class="rvt-lockup__tab">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
-                                <path fill="currentColor" d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z"></path>
-                            </svg>
-                        </div>
-
-                        <!-- **************************************************
-                            Website or application title 
-                        *************************************************** -->
-
-                        <div class="rvt-lockup__body">
-                            <span class="rvt-lockup__title">Study Room Scheduler</span>
-                            <span class="rvt-lockup__subtitle">Indiana University Kokomo</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="rvt-header-global__controls" data-rvt-disclosure="menu">
-                    <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="menu">
-                        <span class="rvt-sr-only">Menu</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" viewBox="0 0 16 16">
-                            <g fill="currentColor">
-                                <path d="M15,3H1A1,1,0,0,1,1,1H15a1,1,0,0,1,0,2Z"></path>
-                                <path d="M15,9H1A1,1,0,0,1,1,7H15a1,1,0,0,1,0,2Z"></path>
-                                <path d="M15,15H1a1,1,0,0,1,0-2H15a1,1,0,0,1,0,2Z"></path>
-                            </g>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__close" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8.46954 7.00409L13.7595 1.71409C13.9234 1.52279 14.009 1.27671 13.9993 1.02504C13.9895 0.773362 13.8852 0.534623 13.7071 0.356528C13.529 0.178434 13.2903 0.0741014 13.0386 0.0643803C12.7869 0.0546591 12.5408 0.140265 12.3495 0.304092L7.05954 5.59409L1.76954 0.294092C1.58124 0.105788 1.32585 -3.72428e-09 1.05954 -1.74018e-09C0.793242 2.43924e-10 0.537847 0.105788 0.349544 0.294092C0.16124 0.482395 0.055452 0.73779 0.055452 1.00409C0.055452 1.27039 0.16124 1.52579 0.349544 1.71409L5.64954 7.00409L0.349544 12.2941C0.244862 12.3837 0.159841 12.4941 0.0998179 12.6181C0.0397946 12.7422 0.00606467 12.8773 0.000745174 13.015C-0.00457432 13.1528 0.0186315 13.2901 0.0689061 13.4184C0.119181 13.5467 0.195439 13.6633 0.292893 13.7607C0.390348 13.8582 0.506896 13.9345 0.635221 13.9847C0.763546 14.035 0.900878 14.0582 1.0386 14.0529C1.17632 14.0476 1.31145 14.0138 1.43551 13.9538C1.55958 13.8938 1.6699 13.8088 1.75954 13.7041L7.05954 8.41409L12.3495 13.7041C12.5408 13.8679 12.7869 13.9535 13.0386 13.9438C13.2903 13.9341 13.529 13.8297 13.7071 13.6517C13.8852 13.4736 13.9895 13.2348 13.9993 12.9831C14.009 12.7315 13.9234 12.4854 13.7595 12.2941L8.46954 7.00409Z" fill="currentColor"></path>
-                        </svg>
-                    </button>
-
-                    <!-- ******************************************************
-                        Primary navigation
-                    ******************************************************* -->
-
-                    <nav aria-label="Main" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
-                        <ul class="rvt-header-menu__list">
-                            <li class="rvt-header-menu__item">
-                                <a class="rvt-header-menu__link" href="https://iuk.libguides.com/?b=g&d=a">LibGuides</a>
-                            </li>
-                            <li class="rvt-header-menu__item">
-                                <a class="rvt-header-menu__link" href="https://iucat.iu.edu/iuk">Catalog Search</a>
-                            </li>
-                            <li class="rvt-header-menu__item">
-                                <a class="rvt-header-menu__link" href="https://proxyko.uits.iu.edu/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=eds">EDS Search</a>
-                            </li>
-                            <li class="rvt-header-menu__item">
-                                <a class="rvt-header-menu__link" href="https://www.iuk.edu/library/find-borrow-request/requests-and-interlibrary-loan/">Interlibrary Loan</a>
-                            </li>
-                            <li class="rvt-header-menu__item">
-                                <a class="rvt-header-menu__link" href="https://www.iuk.edu/library/about/staff/index.html">Contact</a>
-                            </li>
-                            <li class="rvt-header-menu__item">
-                                <a class="rvt-header-menu__link" href="https://iuk.libguides.com/citation-management">Citation Management</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
+        div{
+          text-align: center;
+        }
+      </style>
+  </header>
     <!--Main content area-->
 
-    <body>
-        <!-- required for rivets to work where compenents are being pulled -->
-        <script src="https://unpkg.com/rivet-core@2.0.0-beta/js/rivet.min.js"></script>
-        <script>Rivet.init();</script>
+    <main id="main-content" class="rvt-layout__wrapper">
+
+        <div class="rvt-hero">
+            
+            <div class="rvt-p-top-3-l-md-up rvt-p-bottom-4-xl-md-up">
+            
+                <h1 class="rvt-hero__title">Welcome to IU Kokomo Library Study Room Scheduler</h1>
         
-        <h1>Welcome Page</h1> <br></br>
-      
-        <!-- input text box for date -->
-        
-        <div>
-          <a href = "/reservations"><button class="rvt-button">Reservations</button></a> <a href="/cancellation"><button class="rvt-button rvt-button--success">Cancellations </button></a>
+                <!-- Reservation/Cancellation buttons -->
+                <div class="rvt-border-all rvt-m-top-md rvt-p-all-md rvt-shadow-heavy rvt-p-all-lg rvt-m-bottom-lg">
+                    
+                    <a href="/reservations" class="rvt-button">Reserve a Study Room</a>
+    
+                    <a href="/cancelation" class="rvt-button">Cancel an existing Study Room</a>
+    
+                  </div>
+    
+        <!-- Accordion for policies/guidelines -->
+        <div class="rvt-p-top-3-l-md-up rvt-p-bottom-3-xl-md-up">
+        <div class="rvt-accordion" data-rvt-accordion="test-accordion">
+            <h3 class="rvt-accordion__summary">
+              <button class="rvt-accordion__toggle" id="test-accordion-1-label" data-rvt-accordion-trigger="test-accordion-1">
+                <span class="rvt-accordion__toggle-text">What to Know about Room Scheduling</span>
+                <div class="rvt-accordion__toggle-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <g fill="currentColor">
+                      <path class="rvt-accordion__icon-bar" d="M8,15a1,1,0,0,1-1-1V2A1,1,0,0,1,9,2V14A1,1,0,0,1,8,15Z" />
+                      <path d="M14,9H2A1,1,0,0,1,2,7H14a1,1,0,0,1,0,2Z" />
+                    </g>
+                  </svg>
+                </div>
+              </button>
+            </h3>
+            <div class="rvt-accordion__panel" id="test-accordion-1" aria-labelledby="test-accordion-1-label" data-rvt-accordion-panel="test-accordion-1">
+            <p class="rvt-m-all-remove">
+                <ul>
+                <li>Reservations may be made by currently enrolled IU Kokomo students up to one week in advance, but no less than 24 hours in advance.</li>
+                <li>Room reservations must be made using your primary IU email address exactly as listed in the IU Directory. Reservations from other or non-IU email addresses will not be approved.</li>
+                <li>Study room users without reservations must vacate the room when an individual or group with a reservation arrives. A daily schedule of study room reservations will be posted outside each room.</li>
+                <li>No-shows: If the room is not claimed within 15 minutes of the reserved time, the reservation will be cancelled and the study room will be available to others for the remainder of the time reserved.</li>
+                <li>The Library is not responsible for unattended belongings. Materials left unattended in a study room for more than 10 minutes will be removed and taken to the Circulation/Reserves Service Desk.</li>
+                <li>Report any problems with the rooms to the Departmental Secretary, Charla Calvert: KA 233, ccalver@iu.edu, 765-455-9511.</li>
+                </ul>
+            </p>
+            </div>
+            <h3 class="rvt-accordion__summary">
+              <button class="rvt-accordion__toggle" id="test-accordion-2-label" data-rvt-accordion-trigger="test-accordion-2">
+                <span class="rvt-accordion__toggle-text">Instructions</span>
+                <div class="rvt-accordion__toggle-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <g fill="currentColor">
+                      <path class="rvt-accordion__icon-bar" d="M8,15a1,1,0,0,1-1-1V2A1,1,0,0,1,9,2V14A1,1,0,0,1,8,15Z" />
+                      <path d="M14,9H2A1,1,0,0,1,2,7H14a1,1,0,0,1,0,2Z" />
+                    </g>
+                  </svg>
+                </div>
+              </button>
+            </h3>
+            <div class="rvt-accordion__panel" id="test-accordion-2" aria-labelledby="test-accordion-2-label" data-rvt-accordion-panel="test-accordion-2">
+            <p class="rvt-m-all-remove">
+                <ul>
+                <li>Click on the "Reserve a Study Room" button</li>
+                <li>Select a date</li>
+                <li>Choose your preferred time</li>
+                <li>Select a specific study room</li>
+                <li>Press "Continue"</li>
+                <li>Fill out the form</li>
+                <li>A notice will be sent confirming your reservation</li>
+                </ul>
+            </p>
+            </div>
+            <h3 class="rvt-accordion__summary">
+              <button class="rvt-accordion__toggle" id="test-accordion-3-label" data-rvt-accordion-trigger="test-accordion-3">
+                <span class="rvt-accordion__toggle-text">Study Room Policy</span>
+                <div class="rvt-accordion__toggle-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <g fill="currentColor">
+                      <path class="rvt-accordion__icon-bar" d="M8,15a1,1,0,0,1-1-1V2A1,1,0,0,1,9,2V14A1,1,0,0,1,8,15Z" />
+                      <path d="M14,9H2A1,1,0,0,1,2,7H14a1,1,0,0,1,0,2Z" />
+                    </g>
+                  </svg>
+                </div>
+              </button>
+            </h3>
+            <div class="rvt-accordion__panel" id="test-accordion-3" aria-labelledby="test-accordion-3-label" data-rvt-accordion-panel="test-accordion-3">
+              <p class="rvt-m-all-remove">All study rooms are available for use from the opening of the Library until ten (10) minutes before closing
+                Study rooms are available for IU Kokomo Students only.
+                Reservations accepted Monday – Friday.<br></br>
+                The study rooms below may be reserved for half-hour increments, up to three consecutive hours per day, three times per week (Monday – Friday), per individual or group. When not reserved, and all day on Saturday and Sunday, all study rooms are available on a first-come, first-served basis.
+            </p>
+            </div>
+          </div>
         </div>
+    
+                  <!-- Library Hours table -->
+                  <div class="rvt-box rvt-p-top-2-md-up rvt-p-bottom-3-xl-md-up">
+                      <div class="rvt-box__body">
+                        <div class="rvt-container--center" style="max-width: 35%">
+                            <table class="rvt-table-cells">
+                                <caption class="rvt-sr-only">Library Hours Table</caption>
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Library Hours</th>
+                                    <th scope=""></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">Mondays</th>
+                                    <td>8:00 a.m. - 9 p.m.</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Tuesdays</th>
+                                    <td>8:00 a.m. - 9 p.m.</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Wednesdays</th>
+                                    <td>8:00 a.m. - 9 p.m.</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Thursdays</th>
+                                    <td>8:00 a.m. - 9 p.m.</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Fridays</th>
+                                    <td>8:00 a.m. - 5 p.m.</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Saturdays</th>
+                                    <td>12 - 5 p.m.</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Sundays</th>
+                                    <td>1 - 7 p.m.</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              
+                </div>
+                </div>
+                </div>
+    
+                <!-- Study room description table -->
+                <div class="rvt-box">
+                    <div class="rvt-box__body">
+                      <div class="rvt-container--center" style="max-width: 25%">
+                          <table class="rvt-table-compact">
+                              <caption class="rvt-sr-only">Room Description Table</caption>
+                              <thead>
+                                <tr>
+                                  <th scope="col">Study Room</th>
+                                  <th scope="col">Capacity</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">KA 116 – Lobby area</th>
+                                  <td>8</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">KA 118 – Lobby area</th>
+                                  <td>8</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">KA 147 – West Commons</th>
+                                  <td>6</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">KA 149 – West Commons</th>
+                                  <td>6</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">KA 155 – West Commons</th>
+                                  <td>6</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">KA 157 – West Commons</th>
+                                  <td>6</td>
+                                </tr>
+                              </tbody>
+                            </table>
+    
+                            <table class="rvt-table-compact">
+                                <caption class="rvt-sr-only">Room Description Table</caption>
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Study Room</th>
+                                    <th scope="col">Capacity</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">KA 220</th>
+                                    <td>6</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">KA 222</th>
+                                    <td>6</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">KA 224</th>
+                                    <td>6</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">KA 226</th>
+                                    <td>6</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+    
+                              <table class="rvt-table-compact">
+                                <caption class="rvt-sr-only">Room Description Table</caption>
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Study Room</th>
+                                    <th scope="col">Capacity</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">KA 159 - West Commons</th>
+                                    <td>2</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">KA 160 - West Commons</th>
+                                    <td>2</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">KA 161 - West Commons</th>
+                                    <td>2</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            
+              </div>
+              </div>
+              </div>
+            </div>
+           
+        </div>
+    
+    </main>
+    
+    
+    <!-- Internal CSS Stylesheet -->
+    <style>
+    
+    .rvt-hero {
+        text-align: center;
+    
+    }
+    
+    .rvt-hero__title {
+        color: #243142;
+    }
+    
+    .rvt-border-all {
+        background-color: #243142;
+    }
+    
+    .rvt-button {
+        height: 45px;
+        padding: 0px 24px;
+        font-size: 24px;
+        line-height: 1.75;
+        color: #EDEBEB;
+        background-color: #990000;
+        border: 1px;
+        border-color: #990000;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%);
+    }
+    
+    .rvt-button:hover {
+        background-color: white;
+        color: #900;
+        border: 2px solid #900;
+        transition: background-color .4s ease-out,color .4s ease-out,border-color .4s ease-out;
+    
+      }
+    
+    .rvt-container--center {
+        margin:auto;
+        border: 1px solid #243142;
+    }
+    
+    .rvt-accordion {
+        max-width: 70%;
+        margin:auto;
+        border: 1px solid #243142;
+    }
+    
+    </style>
       
       </body>
 
@@ -129,19 +423,16 @@
                 </svg>
             </div>
             <ul class="rvt-footer-base__list">
-                <li class="rvt-footer-base__item">
-                    <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
-                </li>
-                <li class="rvt-footer-base__item">
-                    <a class="rvt-footer-base__link" href="#0">Privacy Notice</a>
-                </li>
-                <li class="rvt-footer-base__item">
-                    <a class="rvt-footer-base__link" href="#0">Copyright</a> © 2021 The Trustees of <a class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
-                </li>
-                <li class="rvt-footer-base__item">
-                  <a class="rvt-footer-base__link" href="#0">Created by Ogre, Inc</a>
+              <li class="rvt-footer-base__item">
+                  <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
               </li>
-            </ul>
+              <li class="rvt-footer-base__item">
+                  <a class="rvt-footer-base__link" href="https://www.iuk.edu/uits/privacy-policy.html/">Privacy Notice</a>
+              </li>
+              <li class="rvt-footer-base__item">
+                  Copyright</a> © 2021 The Trustees of Indiana University
+              </li>
+          </ul>
         </div>
     </div>
 </footer>

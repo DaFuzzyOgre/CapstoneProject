@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
-  <title>Reservations</title>
-  <link rel="shortcut icon" type="image/jpg" href="/Users/jeanredfern/Documents/IUK Spring 2022/Dev & Design/CapstoneProject/views/images/favicon.jpg"/>
+  <title>Study Room Reservation</title>
+  <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
   <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
   <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
 </head>
@@ -121,55 +121,50 @@
 
 
 <body>
-  <!-- required for rivets to work where compenents are being pulled -->
-  <script src="https://unpkg.com/rivet-core@2.0.0-beta/js/rivet.min.js"></script>
-  <script>Rivet.init();</script>
-  
-  <h1>Study Room Reservation</h1> <br></br>
+  <h1>Study Room Reservations</h1>
+  <h2>Room Information</h2>
+  <p>Please enter the following information:</p>
 
-  <!-- input text box for date -->
+  <form>
+    <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
+    <input type="date" id="date" name="date" class="rvt-label"><br></br>
+
+  <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
+  <input type="time" id="time" name="time" class="rvt-label"><br></br>
+ 
+  <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
+      <input list="numpeople" name="numpeople" placeholder="Select people in reservation"><br></br>
+      <datalist id="numpeople">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        </datalist>
+  
+      <label for="studyrooms" class="rvt-label">Select a study room number:</label><br>
+      <input list="studyrooms" name="studyrooms" placeholder="Select a study room"><br></br>
+      <datalist id="studyrooms">
+        <option value="KA116">
+        <option value="KA118">
+        <option value="KA147">
+        <option value="KA149">
+        <option value="KA155">
+        <option value="KA157">
+        <option value="KA220">
+        <option value="KA222">
+        <option value="KA224">
+        <option value="KA226">
+        </datalist>
+        
+    </br>
+  </form>
   <div>
-    <label for="text-input-default" class="rvt-label">Please enter the date you want to reserve a study room for:</label>
-    <input type="text" id="text-input-default" style="width: 200px; margin:auto;" placeholder="mm/dd/yy" class="rvt-text-input">
-  </div>
-
-  <br></br>
-
-  <!-- dropdown for selecting a time -->
-  <label for="select-input-default=Time" class="rvt-label">Please select a time:</label>
-  <select id="select-input-default-Time" style="width: 200px; margin:auto;" class="rvt-select">
-    <option value="starter">Select a time</menu>
-    <option value="time 1">Time 1</option>
-    <option value="time 2">Time 2</option>
-    <option value="time 3">Time 3</option>
-    <option value="time 4">Time 4</option>
-  </select>
-  
-  <br></br>  
-
-      <!-- dropdown for selecting a room -->
-      <label for="select-input-default-Room" class="rvt-label">Please select a room:</label>
-      <select id="select-input-default-Room" style="width: 200px; margin:auto;" class="rvt-select">
-        <option value="starter">Select a room</menu>
-        <option value="First floor">KA116</option>
-        <option value="First floor">KA118</option>
-        <option value="First floor">KA147</option>
-        <option value="First floor">KA149</option>
-        <option value="First floor">KA155</option>
-        <option value="First floor">KA157</option>
-        <option value="Second floor">KA220</option>
-        <option value="Second floor">KA222</option>
-        <option value="Second floor">KA224</option>
-        <option value="Second floor">KA226</option>
-      </select>
-  
-  <br></br>
-
-  <!-- go back to home page and continue buttons -->
-  <div>
-    <a href = "/"><button class="rvt-button">Go back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a>
-  </div>
-
+  <a href = "/"><button class="rvt-button">Go Back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a><br><br>
+</div>
 </body>
 
 <footer class="rvt-footer-base">
@@ -180,20 +175,17 @@
                   <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19" fill="#231f20" />
               </svg>
           </div>
-          <ul class="rvt-footer-base__list">
-              <li class="rvt-footer-base__item">
-                  <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
-              </li>
-              <li class="rvt-footer-base__item">
-                  <a class="rvt-footer-base__link" href="#0">Privacy Notice</a>
-              </li>
-              <li class="rvt-footer-base__item">
-                  <a class="rvt-footer-base__link" href="#0">Copyright</a> © 2021 The Trustees of <a class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
-              </li>
-              <li class="rvt-footer-base__item">
-                <a class="rvt-footer-base__link" href="#0">Created by Ogre, Inc</a>
-            </li>
-          </ul>
+         <ul class="rvt-footer-base__list">
+                <li class="rvt-footer-base__item">
+                    <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
+                </li>
+                <li class="rvt-footer-base__item">
+                    <a class="rvt-footer-base__link" href="https://www.iuk.edu/uits/privacy-policy.html/">Privacy Notice</a>
+                </li>
+                <li class="rvt-footer-base__item">
+                    Copyright</a> © 2021 The Trustees of Indiana University
+                </li>
+            </ul>
       </div>
   </div>
 </footer>
@@ -201,5 +193,3 @@
 <script>
 Rivet.init();
 </script>
-
-
