@@ -1,12 +1,24 @@
+const fs = require('fs');
+var dataservice = require("./data-service.js");
 var path = require("path");
 var express = require("express");
 var app = express();
+var multer = require("multer");
+const storage = multer.diskStorage({
+  destination: "./public/images/uploaded",
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+const upload = multer({ storage: storage });
+const bodyParser = require("body-parser");
+const { status } = require('express/lib/response');
+
 
 var HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.static('public'))
-
-// call this function after the http server starts listening for requests
+app.use(bodyParser.urlencoded({ extended: true }));
 function onHttpStart() {
   console.log("Express http server listening on: " + HTTP_PORT);
 }
