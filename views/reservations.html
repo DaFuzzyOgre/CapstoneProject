@@ -125,7 +125,9 @@
   <h2>Room Information</h2>
   <p>Please enter the following information:</p>
 
-  <form>
+  <form method="post" action="/resInfo/add">
+    
+    <fieldset>
     <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
     <input type="date" id="date" name="date" class="rvt-label"><br></br>
 
@@ -161,6 +163,7 @@
         </datalist>
         
     </br>
+    </fieldset>
   </form>
   <div>
   <a href = "/"><button class="rvt-button">Go Back </button></a> <a href="/studentinfo"><button class="rvt-button rvt-button--success">Continue </button></a><br><br>

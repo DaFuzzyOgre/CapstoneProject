@@ -1,16 +1,10 @@
 const fs = require('fs');
-var dataservice = require("./data-service.js");
+var resService = require("./reservation-service.js");
 var path = require("path");
 var express = require("express");
 var app = express();
 var multer = require("multer");
-const storage = multer.diskStorage({
-  destination: "./public/images/uploaded",
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
-const upload = multer({ storage: storage });
+
 const bodyParser = require("body-parser");
 const { status } = require('express/lib/response');
 
@@ -43,7 +37,8 @@ app.get("/cancelation", function(req,res){
 app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
 });
-
-
+app.post("/resInfo/add", function(req,res){
+  resService.addReservation(req.body /*, res.redirect("/reservations")*/);
+});
 // setup http server to listen on HTTP_PORT
 app.listen(HTTP_PORT, onHttpStart);
