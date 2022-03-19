@@ -16,7 +16,8 @@ module.exports.addStudent=function(studentData){
              if (studentData.length == 0){
             reject("need data"); return;
         }
-        resolve(Object.assign(reservationArray[0], {name: studentData.name, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation}));
+        let i=reservationArray.length -1;
+        resolve(Object.assign(reservationArray[i], {name: studentData.name, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation}));
     })
 }
 
@@ -25,6 +26,8 @@ module.exports.getReservations = function(){
         if (reservationArray.length == 0) {
             reject("no results returned"); return;
         }    
+        let appointmentJson = JSON.stringify(reservationArray,null,2);
+        fs.writeFileSync('./appointment.json', appointmentJson);
         resolve(reservationArray);
     })
 }
