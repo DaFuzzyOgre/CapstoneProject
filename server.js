@@ -44,7 +44,8 @@ app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
 });
 app.get("/viewRes", (req, res) => {
-  resService.getReservations().then((data) => {
+  resService.getReservations();
+  resService.writeReservation().then((data) => {
     res.json(data);
 }).catch((err) => {
     res.json({ message: "no results" });

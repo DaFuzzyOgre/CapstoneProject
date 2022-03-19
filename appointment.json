@@ -8,5 +8,15 @@
     "idnum": "15",
     "email": "b@f.com",
     "reservation": "brock"
+  },
+  {
+    "date": "2022-03-21",
+    "time": "21:14",
+    "numpeople": "6",
+    "studyrooms": "KA222",
+    "name": "Bob",
+    "idnum": "52115312",
+    "email": "a@b.com",
+    "reservation": "Bob Bob"
   }
 ]

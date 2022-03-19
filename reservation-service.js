@@ -2,6 +2,7 @@ const fs = require('fs');
 const { resolve } = require('path');
 const { reject } = require('promise');
 let reservationArray=[];
+let appointmentJson="";
 
 module.exports.addReservation=function(reservationData){
     return new Promise((resolve,reject)=>{          
@@ -26,8 +27,26 @@ module.exports.getReservations = function(){
         if (reservationArray.length == 0) {
             reject("no results returned"); return;
         }    
-        let appointmentJson = JSON.stringify(reservationArray,null,2);
-        fs.writeFileSync('./appointment.json', appointmentJson);
-        resolve(reservationArray);
+        appointmentJson = JSON.stringify(reservationArray);
+        resolve(appointmentJson);
     })
 }
+module.exports.writeReservation = function(){
+    return new Promise((resolve,reject)=>{
+        if (reservationArray.length == 0) {
+            reject("no results returned"); return;
+        }    
+        fs.readFile('./appointment.json', function (err, data) {
+            var jsonData = JSON.parse(data);
+            let appObj = appointmentJson.replace('[', '').replace(']','');
+            let parsedAppObj = JSON.parse(appObj);
+            jsonData.push(parsedAppObj);
+        
+            fs.writeFile("./appointment.json", JSON.stringify(jsonData,null,2),(err) => {
+                if (err) {
+                  console.log(err);
+                }
+        })
+        resolve(jsonData);
+    })
+})}
