@@ -26,10 +26,13 @@ app.get("/reservations", function(req,res){
   res.sendFile(path.join(__dirname,"/views/reservations.html"));
 });
 app.post("/reservations", function(req,res){
-  resService.addReservation(req.body , res.redirect("/viewRes"));
+  resService.addReservation(req.body , res.redirect("/studentinfo"));
 });
 app.get("/studentinfo", function(req,res){
   res.sendFile(path.join(__dirname,"/views/studentinfo.html"));
+});
+app.post("/studentinfo", function(req,res){
+  resService.addStudent(req.body , res.redirect("/viewRes"));
 });
 app.get("/confirmation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmation.html"));

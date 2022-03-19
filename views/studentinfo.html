@@ -116,7 +116,9 @@
     <h1>Study Room Reservations</h1>
     <h2>Student Information</h2>
     <p>Please enter the following information:</p>
-  <form>
+    <form method="post" action="/studentinfo">
+    
+        <fieldset>
     <label for="name" class="rvt-label">First and Last Name</label><br>
     <input type="text" id="name" name="name" class="rvt-label" placeholder="John Doe" maxlength=30><br>
     <br/>
@@ -128,10 +130,10 @@
     <input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="John Doe"><br><br>
    
     <br/>
-    
+</fieldset>
+<a href = "/reservations"><button class="rvt-button">Go Back </button></a>  <input type="submit" class="rvt-button rvt-button--success" value="Add Student" />
 </form>
 <div>
-<a href = "/reservations"><button class="rvt-button">Go Back </button></a>  <a href="/confirmation"><button class="rvt-button rvt-button--success">Submit </button></a>  
 </div>
 </body>
 

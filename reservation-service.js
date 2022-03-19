@@ -11,6 +11,14 @@ module.exports.addReservation=function(reservationData){
         resolve(reservationArray.push(reservationData));
     })
 }
+module.exports.addStudent=function(studentData){
+    return new Promise((resolve,reject)=>{          
+             if (studentData.length == 0){
+            reject("need data"); return;
+        }
+        resolve(Object.assign(reservationArray[0], {name: studentData.name, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation}));
+    })
+}
 
 module.exports.getReservations = function(){
     return new Promise((resolve,reject)=>{
