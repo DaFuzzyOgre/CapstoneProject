@@ -4,6 +4,10 @@ const { reject } = require('promise');
 let reservationArray=[];
 let appointmentJson="";
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 module.exports.addReservation=function(reservationData){
     return new Promise((resolve,reject)=>{          
              if (reservationData.length == 0){
@@ -17,8 +21,9 @@ module.exports.addStudent=function(studentData){
              if (studentData.length == 0){
             reject("need data"); return;
         }
+        let confirmNum= getRandomInt(100000);
         let i=reservationArray.length -1;
-        resolve(Object.assign(reservationArray[i], {name: studentData.name, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation}));
+        resolve(Object.assign(reservationArray[i], {name: studentData.name, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation, delete: "False", confirmation:confirmNum}));
     })
 }
 
