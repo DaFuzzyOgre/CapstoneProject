@@ -15,7 +15,9 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 function onHttpStart() {
   console.log("Express http server listening on: " + HTTP_PORT);
-}
+  resService.initialize().then(function(){
+    console.log("success");
+})};
 
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
@@ -40,6 +42,13 @@ app.get("/confirmation", function(req,res){
 app.get("/cancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/cancelation.html"));
 });
+app.post("/cancelation", function(req,res){
+  resService.checkCancelation().then((data) => {
+    res.json(data);
+}).catch((err) => {
+    res.json({ message: "no results" });
+})});
+
 app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
 });

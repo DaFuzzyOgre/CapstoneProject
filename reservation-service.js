@@ -3,10 +3,21 @@ const { resolve } = require('path');
 const { reject } = require('promise');
 let reservationArray=[];
 let appointmentJson="";
+let pAppData=[];
+let index = "";
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
+module.exports.initialize=function(){
+    return new Promise((resolve,reject)=>{
+        fs.readFile('./appointment.json', function (err, appData) {
+            pAppData = JSON.parse(appData);          
+        if (pAppData.length == 0){
+       reject("no data found"); return;
+   }
+   resolve(pAppData)
+})})};
 
 module.exports.addReservation=function(reservationData){
     return new Promise((resolve,reject)=>{          
@@ -55,3 +66,11 @@ module.exports.writeReservation = function(){
         resolve(jsonData);
     })
 })}
+
+module.exports.checkCancelation=function(cancelData){
+    return new Promise((resolve,reject)=>{          
+        if (cancelData.length == 0){
+            reject("need data"); return;
+        }
+            resolve(cancelData);
+        })};        
