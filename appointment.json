@@ -34,5 +34,17 @@
     "reservation": "Mickey Mouse",
     "delete": "False",
     "confirmation": 96701
+  },
+  {
+    "date": "2022-03-07",
+    "time": "21:22",
+    "numpeople": "4",
+    "studyrooms": "KA222",
+    "name": "George",
+    "idnum": "124126126",
+    "email": "c@d.com",
+    "reservation": "George's Group",
+    "delete": "False",
+    "confirmation": 21437
   }
 ]
