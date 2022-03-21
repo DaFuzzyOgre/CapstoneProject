@@ -84,17 +84,15 @@ module.exports.checkCancelation=function(cancelData){
 
 module.exports.getCancelation=function(){
     return new Promise((resolve,reject)=>{ 
-        if(cancelInfo.lenth == 0){
-            reject("no data found"); return;
-        } 
+       
         pAppData.forEach(element => {
-         if (cancelInfo[0].confirmation == element.confirmation)
+         if (cancelInfo[0].confirmation == element.confirmation && cancelInfo[0].idnum == element.idnum)
          {
             elementarray.push(element);
          }
         });
-        if (elementarray == null){
-            resolve("no appointment found")
+        if (elementarray.length == 0){
+            reject("no appointment found")
         }
         else{ resolve(elementarray)}
     })
