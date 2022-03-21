@@ -4,7 +4,7 @@ const { reject } = require('promise');
 let reservationArray=[];
 let appointmentJson="";
 let pAppData=[];
-let index = "";
+let cancelInfo=[];
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -67,10 +67,28 @@ module.exports.writeReservation = function(){
     })
 })}
 
+
+
 module.exports.checkCancelation=function(cancelData){
     return new Promise((resolve,reject)=>{          
         if (cancelData.length == 0){
             reject("need data"); return;
-        }
-            resolve(cancelData);
-        })};        
+        }      
+        
+        resolve(cancelInfo.push(cancelData));
+    })
+}
+
+module.exports.getCancelation=function(){
+    return new Promise((resolve,reject)=>{ 
+        if(cancelInfo.lenth == 0){
+            reject("no data found"); return;
+        } 
+        pAppData.forEach(element => {
+         if (cancelInfo[0].confirmation == element.confirmation)
+         {
+            resolve(element);
+         }
+        });
+    })
+}
