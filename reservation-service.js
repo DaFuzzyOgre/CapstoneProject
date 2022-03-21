@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const fs = require('fs');
 const { resolve } = require('path');
 const { reject } = require('promise');
@@ -5,6 +6,8 @@ let reservationArray=[];
 let appointmentJson="";
 let pAppData=[];
 let cancelInfo=[];
+let elementarray=[];
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -87,8 +90,12 @@ module.exports.getCancelation=function(){
         pAppData.forEach(element => {
          if (cancelInfo[0].confirmation == element.confirmation)
          {
-            resolve(element);
+            elementarray.push(element);
          }
         });
+        if (elementarray == null){
+            resolve("no appointment found")
+        }
+        else{ resolve(elementarray)}
     })
 }
