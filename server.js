@@ -51,6 +51,20 @@ app.post("/cancelation", function(req,res){
 app.get("/appointments", function(req,res){
   res.sendFile(path.join(__dirname,"/views/appointments.html"));
 });
+
+app.post("/appointments", function(req,res){
+  resService.getQuery(req.body , res.redirect("/viewAppointments"));
+});
+
+app.get("/viewAppointments", (req, res) => {
+  resService.compareQuery().then((data) => {
+    res.json(data);
+}).catch((err) => {
+    res.json({ message: "no results" });
+})});
+
+
+
 app.get("/viewCancel", (req, res) => {
   resService.getCancelation().then((data) => {
     res.json(data);
@@ -60,6 +74,6 @@ app.get("/viewCancel", (req, res) => {
 
 app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
-});
+});  
 // setup http server to listen on HTTP_PORT
 app.listen(HTTP_PORT, onHttpStart);

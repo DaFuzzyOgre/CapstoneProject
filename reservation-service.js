@@ -7,6 +7,8 @@ let appointmentJson="";
 let pAppData=[];
 let cancelInfo=[];
 let elementarray=[];
+let queryArray=[];
+let matchArray=[];
 
 
 function getRandomInt(max) {
@@ -95,5 +97,31 @@ module.exports.getCancelation=function(){
             reject("no appointment found")
         }
         else{ resolve(elementarray)}
+    })
+}
+
+module.exports.getQuery=function(queryData){
+    return new Promise((resolve,reject)=>{          
+        if (queryData.length == 0){
+            reject("need data"); return;
+        }      
+        
+        resolve(queryArray.push(queryData));
+    })
+}
+
+module.exports.compareQuery=function(){
+    return new Promise((resolve,reject)=>{ 
+       
+        pAppData.forEach(element => {
+            if (queryArray[0].confirmation == element.confirmation || queryArray[0].idnum == element.idnum || queryArray[0].name == element.name || queryArray[0].email == element.email || queryArray[0].reservation == element.reservation   )
+            {
+               matchArray.push(element);
+            }
+           });
+           if (matchArray.length == 0){
+               reject("no appointment found")
+           }
+           resolve(matchArray)
     })
 }
