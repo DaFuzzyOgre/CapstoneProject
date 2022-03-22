@@ -34,9 +34,11 @@ app.get("/studentinfo", function(req,res){
   res.sendFile(path.join(__dirname,"/views/studentinfo.html"));
 });
 app.post("/studentinfo", function(req,res){
-  resService.addStudent(req.body , res.redirect("/viewRes"));
+  resService.addStudent(req.body , res.redirect("/confirmation"));
 });
 app.get("/confirmation", function(req,res){
+  resService.getReservations();
+  resService.writeReservation();
   res.sendFile(path.join(__dirname,"/views/confirmation.html"));
 });
 app.get("/cancelation", function(req,res){
@@ -55,13 +57,5 @@ app.get("/viewCancel", (req, res) => {
 app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
 });
-app.get("/viewRes", (req, res) => {
-  resService.getReservations();
-  resService.writeReservation().then((data) => {
-    res.json(data);
-}).catch((err) => {
-    res.json({ message: "no results" });
-})});
-
 // setup http server to listen on HTTP_PORT
 app.listen(HTTP_PORT, onHttpStart);

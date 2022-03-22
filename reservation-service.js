@@ -14,7 +14,7 @@ function getRandomInt(max) {
   }
 module.exports.initialize=function(){
     return new Promise((resolve,reject)=>{
-        fs.readFile('./appointment.json', function (err, appData) {
+        fs.readFile('./public/appointment.json', function (err, appData) {
             pAppData = JSON.parse(appData);          
         if (pAppData.length == 0){
        reject("no data found"); return;
@@ -55,13 +55,13 @@ module.exports.writeReservation = function(){
         if (reservationArray.length == 0) {
             reject("no results returned"); return;
         }    
-        fs.readFile('./appointment.json', function (err, data) {
+        fs.readFile('./public/appointment.json', function (err, data) {
             var jsonData = JSON.parse(data);
             let appObj = appointmentJson.replace('[', '').replace(']','');
             let parsedAppObj = JSON.parse(appObj);
             jsonData.push(parsedAppObj);
         
-            fs.writeFile("./appointment.json", JSON.stringify(jsonData,null,2),(err) => {
+            fs.writeFile("./public/appointment.json", JSON.stringify(jsonData,null,2),(err) => {
                 if (err) {
                   console.log(err);
                 }

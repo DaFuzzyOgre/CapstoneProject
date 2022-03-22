@@ -124,12 +124,23 @@
   <p>
     Thank you for making your reservation at the IUK library. <br>
     An email with your confirmation number has been sent.<br><br>    
-    The date of your reservation is: MM/DD/YYYY <br>
-    The time of your reservation is: 00:00<br>
-    Your room number is: KAXXX<br>
-    Your confirmation number is: XXXXXXX
+    The date of your reservation is: <div id="rDate"></div><br>
+    The time of your reservation is: <div id="rTime"></div><br>
+    Your room number is: <div id="roomNum"></div><br>
+    Your confirmation number is: <div id="conNum"></div>
     <img src="/images/Icons8_flat_approval.png"> 
 </p>
+<script>
+    fetch('/appointment.json').then(function(response) {
+      return response.json().then(data => {
+          let i = data.length - 1;
+          document.querySelector('#rDate').innerHTML = data[i].date
+          document.querySelector('#rTime').innerHTML = data[i].time
+          document.querySelector('#roomNum').innerHTML = data[i].studyrooms
+          document.querySelector('#conNum').innerHTML = data[i].confirmation
+      })
+    })
+</script>
 <div>
     <a href = "/"><button class="rvt-button">Go Home </button></a>
 </div>
