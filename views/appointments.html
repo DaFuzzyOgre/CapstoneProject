@@ -1,0 +1,19 @@
+<form method="post" action="/appointments">
+    
+    <fieldset>
+        <h1>Query By:</h1>
+<label for="name" class="rvt-label">First and Last Name</label><br>
+<input type="text" id="name" name="name" class="rvt-label" placeholder="name" maxlength=30><br>
+<br/>
+<label for="idnum" class="rvt-label">Student ID Number</label><br>
+<input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10><br><br>
+<label for="email" class="rvt-label"></label>IU Email Address<br>
+<input type="text" id="email" name="email" class="rvt-label" placeholder="email address"> <br><br>
+<label for="reservation" class="rvt-label">Reservation Name (To Appear on Door)</label><br>
+<input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="Reservation"><br><br>
+<label for="confirmation" class="rvt-label">Confirmation Number</label><br>
+<input type="text" id="confirmation" name="confirmation" class="rvt-label" placeholder="Confrimation"><br><br>
+<br/>
+</fieldset>
+<a href = "/reservations"><button class="rvt-button">Go Back </button></a>  <input type="submit" class="rvt-button rvt-button--success" value="Add Student" />
+</form>

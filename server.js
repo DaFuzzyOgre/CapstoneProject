@@ -47,6 +47,10 @@ app.get("/cancelation", function(req,res){
 app.post("/cancelation", function(req,res){
   resService.checkCancelation(req.body , res.redirect("/viewCancel"));
 });
+
+app.get("/appointments", function(req,res){
+  res.sendFile(path.join(__dirname,"/views/appointments.html"));
+});
 app.get("/viewCancel", (req, res) => {
   resService.getCancelation().then((data) => {
     res.json(data);
