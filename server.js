@@ -23,6 +23,7 @@ function onHttpStart() {
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
     res.sendFile(path.join(__dirname,"/views/index.html"));
+    resService.nullArray();
 });
 
 app.get("/reservations", function(req,res){
@@ -47,6 +48,7 @@ app.get("/cancelation", function(req,res){
 });
 app.post("/cancelation", function(req,res){
   resService.checkCancelation(req.body , res.redirect("/viewCancel"));
+  resService.nullArray();
 });
 
 app.get("/appointments", function(req,res){
@@ -62,7 +64,9 @@ app.get("/viewAppointments", (req, res) => {
     res.json(data);
 }).catch((err) => {
     res.json({ message: "no results" });
-})});
+})
+
+});
 
 
 
@@ -71,7 +75,9 @@ app.get("/viewCancel", (req, res) => {
     res.json(data);
 }).catch((err) => {
     res.json({ message: "no results" });
-})});
+})
+
+});
 
 app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));

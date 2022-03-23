@@ -29,8 +29,7 @@ module.exports.addReservation=function(reservationData){
              if (reservationData.length == 0){
             reject("need data"); return;
         }
-        reservationArray=reservationData;
-        resolve(reservationArray);
+        resolve(reservationArray.push(reservationData));
     })
 }
 module.exports.addStudent=function(studentData){
@@ -80,8 +79,8 @@ module.exports.checkCancelation=function(cancelData){
         if (cancelData.length == 0){
             reject("need data"); return;
         }      
-        cancelInfo = cancelData;
-        resolve(cancelInfo);
+        
+        resolve(cancelInfo.push(cancelData));
     })
 }
 
@@ -91,7 +90,7 @@ module.exports.getCancelation=function(){
         pAppData.forEach(element => {
          if (cancelInfo[0].confirmation == element.confirmation && cancelInfo[0].idnum == element.idnum)
          {
-            elementarray =element;
+            elementarray.push(element);
          }
         });
         if (elementarray.length == 0){
@@ -117,7 +116,7 @@ module.exports.compareQuery=function(){
         pAppData.forEach(element => {
             if (queryArray[0].confirmation == element.confirmation || queryArray[0].idnum == element.idnum || queryArray[0].name == element.name || queryArray[0].email == element.email || queryArray[0].reservation == element.reservation   )
             {
-               matchArray = element;
+               matchArray.push(element);
             }
            });
            if (matchArray.length == 0){
@@ -126,3 +125,13 @@ module.exports.compareQuery=function(){
            resolve(matchArray)
     })
 }
+module.exports.nullArray=function(){
+
+    reservationArray=[];
+    appointmentJson="";
+    cancelInfo=[];
+    elementarray=[];
+    queryArray=[];
+    matchArray=[]; 
+        
+    }
