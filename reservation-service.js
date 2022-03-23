@@ -116,7 +116,7 @@ module.exports.compareQuery=function(){
         pAppData.forEach(element => {
             if (queryArray[0].confirmation == element.confirmation || queryArray[0].idnum == element.idnum || queryArray[0].name == element.name || queryArray[0].email == element.email || queryArray[0].reservation == element.reservation   )
             {
-               matchArray.push(element);
+               matchArray = element;
             }
            });
            if (matchArray.length == 0){
