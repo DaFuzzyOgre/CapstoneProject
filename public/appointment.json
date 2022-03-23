@@ -130,5 +130,17 @@
     "reservation": "info451",
     "delete": "False",
     "confirmation": 12414
+  },
+  {
+    "date": "2022-03-25",
+    "time": "12:42",
+    "numpeople": "4",
+    "studyrooms": "KA222",
+    "name": "Jean",
+    "idnum": "151262112",
+    "email": "Jean@gmail.com",
+    "reservation": "OGre1",
+    "delete": "False",
+    "confirmation": 66136
   }
 ]
