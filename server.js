@@ -48,7 +48,6 @@ app.get("/cancelation", function(req,res){
 });
 app.post("/cancelation", function(req,res){
   resService.checkCancelation(req.body , res.redirect("/viewCancel"));
-  resService.nullArray();
 });
 
 app.get("/appointments", function(req,res){

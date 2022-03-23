@@ -105,14 +105,14 @@ module.exports.getQuery=function(queryData){
         if (queryData.length == 0){
             reject("need data"); return;
         }      
-        
+        queryArray=[];
         resolve(queryArray.push(queryData));
     })
 }
 
 module.exports.compareQuery=function(){
     return new Promise((resolve,reject)=>{ 
-       
+       matchArray=[];
         pAppData.forEach(element => {
             if (queryArray[0].confirmation == element.confirmation || queryArray[0].idnum == element.idnum || queryArray[0].name == element.name || queryArray[0].email == element.email || queryArray[0].reservation == element.reservation   )
             {
@@ -131,7 +131,6 @@ module.exports.nullArray=function(){
     appointmentJson="";
     cancelInfo=[];
     elementarray=[];
-    queryArray=[];
-    matchArray=[]; 
+   
         
     }
