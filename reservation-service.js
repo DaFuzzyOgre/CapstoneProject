@@ -29,7 +29,7 @@ module.exports.addReservation=function(reservationData){
              if (reservationData.length == 0){
             reject("need data"); return;
         }
-        reservationArray.push(reservationData);
+        reservationArray=reservationData;
         resolve(reservationArray);
     })
 }
