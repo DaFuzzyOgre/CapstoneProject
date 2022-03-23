@@ -29,7 +29,8 @@ module.exports.addReservation=function(reservationData){
              if (reservationData.length == 0){
             reject("need data"); return;
         }
-        resolve(reservationArray.push(reservationData));
+        reservationArray = reservationData;
+        resolve(reservationArray);
     })
 }
 module.exports.addStudent=function(studentData){
@@ -79,8 +80,8 @@ module.exports.checkCancelation=function(cancelData){
         if (cancelData.length == 0){
             reject("need data"); return;
         }      
-        
-        resolve(cancelInfo.push(cancelData));
+        cancelInfo = cancelData;
+        resolve(cancelInfo);
     })
 }
 
@@ -90,7 +91,7 @@ module.exports.getCancelation=function(){
         pAppData.forEach(element => {
          if (cancelInfo[0].confirmation == element.confirmation && cancelInfo[0].idnum == element.idnum)
          {
-            elementarray.push(element);
+            elementarray =element;
          }
         });
         if (elementarray.length == 0){
