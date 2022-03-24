@@ -102,21 +102,23 @@ module.exports.getCancelation=function(){
 
 module.exports.getQuery=function(queryData){
     return new Promise((resolve,reject)=>{          
+        matchArray=[];
+        this.initialize();
         if (queryData.length == 0){
             reject("need data"); return;
         }      
-        queryArray=[];
-        resolve(queryArray.push(queryData));
+        queryArray= queryData;
+        resolve(queryArray);
     })
 }
 
 module.exports.compareQuery=function(){
     return new Promise((resolve,reject)=>{ 
-       matchArray=[];
-        pAppData.forEach(element => {
-            if (queryArray[0].confirmation == element.confirmation || queryArray[0].idnum == element.idnum || queryArray[0].name == element.name || queryArray[0].email == element.email || queryArray[0].reservation == element.reservation   )
+       
+        pAppData.forEach(obj => {
+            if (queryArray.confirmation == obj.confirmation || queryArray.idnum == obj.idnum || queryArray.name == obj.name || queryArray.email == obj.email || queryArray.reservation == obj.reservation   )
             {
-               matchArray.push(element);
+               matchArray.push(obj);
             }
            });
            if (matchArray.length == 0){
