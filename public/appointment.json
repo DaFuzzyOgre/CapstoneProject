@@ -406,17 +406,5 @@
     "reservation": "brock",
     "delete": "False",
     "confirmation": 94519
-  },
-  {
-    "date": "2022-04-20",
-    "time": "20:30",
-    "numpeople": "4",
-    "studyrooms": "KA224",
-    "name": "jo",
-    "idnum": "1456451",
-    "email": "iuk@iu.edu",
-    "reservation": "jo",
-    "delete": "False",
-    "confirmation": 2783
   }
 ]
