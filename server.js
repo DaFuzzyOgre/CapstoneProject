@@ -23,7 +23,6 @@ function onHttpStart() {
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
     res.sendFile(path.join(__dirname,"/views/index.html"));
-    resService.nullArray();
 });
 
 app.get("/reservations", function(req,res){
