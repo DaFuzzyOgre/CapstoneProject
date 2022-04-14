@@ -84,5 +84,6 @@ app.get("/confirmcancelation", function(req,res){
 app.get('*', function(req, res){
   res.sendFile(path.join(__dirname,"/views/errorpage.html"));
 });
+
 // setup http server to listen on HTTP_PORT
 app.listen(HTTP_PORT, onHttpStart);
