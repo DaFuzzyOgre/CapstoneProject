@@ -124,6 +124,13 @@
             text-align: center;
         }
     
+        @media only screen and (max-width: 1079px) {
+        table{
+          padding: 0px;
+          display: table;
+          white-space: nowrap;
+        }
+      }
       </style>
   </header>
   <!--Main content area-->
@@ -132,10 +139,9 @@
 
   <h1>Confirmation</h1>
   <p>Thank You!</p>
-  
   <p>
     Thank you for making your reservation at the IUK library. <br>
-    An email with your confirmation number has been sent.<br><br>
+    An email with your confirmation number has been sent.<br>
     
     <table style="width: 25%;">
         <tr>
@@ -162,7 +168,7 @@
             <td><div id="roomNum"></div></td>
         </tr>
     </table>
-
+    <br>
     <img src="/images/Icons8_flat_approval.png"> 
 </p>
 <script>
@@ -179,6 +185,7 @@
 <div>
     <a href = "/"><button class="rvt-button">Go Home </button></a>
 </div>
+<br>
   </main>
   <footer class="rvt-footer-base">
     <div class="rvt-container-lg">

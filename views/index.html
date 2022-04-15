@@ -107,6 +107,25 @@
         div{
           text-align: center;
         }
+
+        table{
+        border: 1px solid;
+      }
+
+      th{
+        text-align: center; 
+        background-color: #006298; 
+        color: white;
+        
+      }
+
+      @media only screen and (max-width: 1079px) {
+        table{
+          padding: 0px;
+          display: table;
+          white-space: nowrap;
+        }
+      }
       </style>
   </header>
     <!--Main content area-->
@@ -204,60 +223,45 @@
             </div>
           </div>
         </div>
+        <br>
     
                   <!-- Library Hours table -->
-                  <div class="rvt-box rvt-p-top-2-md-up rvt-p-bottom-3-xl-md-up">
-                      <div class="rvt-box__body">
-                        <div class="rvt-container--center" style="max-width: 35%">
-                            <table class="rvt-table-cells">
-                                <caption class="rvt-sr-only">Library Hours Table</caption>
-                                <thead>
+                            <table style="width: 30%;">
                                   <tr>
-                                    <th scope="col">Library Hours</th>
-                                    <th scope=""></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">Mondays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
+                                    <th colspan="2" style ="font-weight: bold;">Library Hours</th>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Tuesdays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
+                                    <td>Monday</td>
+                                    <td>8:00 am&#8212;9 pm</td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Wednesdays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
+                                    <td>Tuesday</td>
+                                    <td>8:00 am&#8212;9 pm</td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Thursdays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
+                                    <td>Wednesday</td>
+                                    <td>8:00 am&#8212;9 pm</td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Fridays</th>
-                                    <td>8:00 a.m. - 5 p.m.</td>
+                                    <td>Thursday</td>
+                                    <td>8:00 am&#8212;9 pm</td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Saturdays</th>
-                                    <td>12 - 5 p.m.</td>
+                                    <td>Friday</td>
+                                    <td>8:00 am&#8212;5 pm</td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">Sundays</th>
-                                    <td>1 - 7 p.m.</td>
+                                    <td>Saturday</td>
+                                    <td>12&#8212;5 pm</td>
                                   </tr>
-                                </tbody>
+                                  <tr>
+                                    <td>Sunday</td>
+                                    <td>1&#8212;7 pm</td>
+                                  </tr>
                               </table>
-                              
-                </div>
-                </div>
-                </div>
             </div>
-           
         </div>
-    
     </main>
-    
     
     <!-- Internal CSS Stylesheet -->
     <style>

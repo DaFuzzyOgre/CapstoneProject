@@ -59,8 +59,6 @@
                               </svg>
                           </button>
       
-                          
-      
                           <nav aria-label="Main" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
                               <ul class="rvt-header-menu__list">
                                   <li class="rvt-header-menu__item">
@@ -107,13 +105,16 @@
           div{
             text-align: center;
           }
+
+          @media only screen and (max-width: 1079px) {
+          }
         </style>
       </header>
 <body>
   <h1>STUDY ROOM CANCELLATION</h1>
-<p>To cancel your study room reservation, enter the following information<br>
-   and click "Confirm". If you do NOT wish to cancel your study room<br>
-    reservation click "Return to Home."</p>
+<p>To cancel your study room reservation, enter the following information
+and click "Confirm". If you do NOT wish to cancel your study room
+reservation click "Return to Home."</p>
 <form method="post" action="/cancelation">    
     <fieldset>
     <p>STUDENT ID NUMBER: </p>
@@ -124,8 +125,8 @@
   <input type="number" id="confirmation" name="confirmation" class="rvt-label" placeholder="98765" maxlength=5><br><br>
   </fieldset>
     <input type="submit" class="rvt-button rvt-button--success" value="Add Cancelation" />
-</form>
-<a href = "/"><button class="rvt-button">Go Back </button></a> 
+</form><br>
+<a href = "/"><button class="rvt-button">Go Back </button></a><br>
 </body>
 
 
