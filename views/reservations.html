@@ -124,15 +124,25 @@
   <h1>Study Room Reservations</h1>
   <h2>Room Information</h2>
   <p>Please enter the following information:</p>
-    <script>
-        let currDate  = Date();
-    </script>
+    
   <form method="post" action="/reservations">
     
     <fieldset>
     <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
     <input type="date" id="date" name="date" class="rvt-label" required><br></br>
-    <script></script>
+    <script>
+        let currDate  = Date();
+        var selectedDate = document.getElementById().value;
+        if (selectedDate < currDate){
+            reject("Date must be " + currDate + "or greater.")
+        }
+        if (selectedDate > currDate + 60){
+            reject("Please schedule within a 60 day time frame from " + currDate)
+        }
+        else {
+            resolve(currDate);
+        }
+    </script>
 
   <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
   <input type="time" id="time" name="time" class="rvt-label"><br></br>
