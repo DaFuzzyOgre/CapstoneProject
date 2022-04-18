@@ -1,0 +1,36 @@
+
+  
+{{> header }}
+
+  <body>
+    <h1>Study Room Reservations</h1>
+    <h2>Student Information</h2>
+    <p>Please enter the following information:</p>
+    <form method="post" action="/studentinfo">
+    
+        <fieldset>
+    <label for="name" class="rvt-label">First and Last Name</label><br>
+    <input type="text" id="name" name="name" class="rvt-label" placeholder="John Doe" maxlength=30><br>
+    <br/>
+    <label for="idnum" class="rvt-label">Student ID Number</label><br>
+    <input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10><br><br>
+    <label for="email" class="rvt-label"></label>IU Email Address<br>
+    <input type="text" id="email" name="email" class="rvt-label" placeholder="student@iu.edu"> <br><br>
+    <label for="reservation" class="rvt-label">Reservation Name (To Appear on Door)</label><br>
+    <input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="John Doe"><br><br>
+   
+    <br/>
+</fieldset>
+<input type="submit" class="rvt-button rvt-button--success" value="Add Student" />
+</form>
+<a href = "/reservations"><button class="rvt-button">Go Back </button></a>  
+<div>
+</div>
+</body>
+
+{{> footer }}
+
+<script src="https://unpkg.com/rivet-core@2.0.0-beta.2/js/rivet.min.js"></script>
+<script>
+  Rivet.init();
+</script>

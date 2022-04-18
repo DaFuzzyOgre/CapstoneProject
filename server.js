@@ -24,30 +24,31 @@ function onHttpStart() {
 // Register '.handlebars' extension with exphbs
 app.engine('.hbs', exphbs.engine({
   extname: '.hbs',
-  defaultLayout: "index.html",
+  defaultLayout: 'layout',
+  layoutsDir: path.join(__dirname, '/views/layouts/'),
+  //defaultView: 'default',
   partialsDir: path.join(__dirname, '/views/partials/')
 }));
 // Set our default template engine to "handlebars"
 app.set('view engine', '.hbs');
 
-app.get('/views/partials/', (req, res) => {
-  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
-  res.render('header.hbs', {layout : 'index.html'});
-  });
+// app.get('/views/partials/', (req, res) => {
+//   res.render('header.hbs', {layout : 'index.html'});
+//   });
   
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname,"/views/index.html"));
+    res.render('index');
 });
 
 app.get("/reservations", function(req,res){
-  res.sendFile(path.join(__dirname,"/views/reservations.html"));
+  res.render('reservations')
 });
 app.post("/reservations", function(req,res){
   resService.addReservation(req.body , res.redirect("/studentinfo"));
 });
 app.get("/studentinfo", function(req,res){
-  res.sendFile(path.join(__dirname,"/views/studentinfo.html"));
+  res.render('studentinfo')
 });
 app.post("/studentinfo", function(req,res){
   resService.addStudent(req.body , res.redirect("/confirmation"));
@@ -55,17 +56,17 @@ app.post("/studentinfo", function(req,res){
 app.get("/confirmation", function(req,res){
   resService.getReservations();
   resService.writeReservation();
-  res.sendFile(path.join(__dirname,"/views/confirmation.html"));
+  res.render('confirmation')
 });
 app.get("/cancelation", function(req,res){
-  res.sendFile(path.join(__dirname,"/views/cancelation.html"));
+  res.render('cancelation');
 });
 app.post("/cancelation", function(req,res){
   resService.checkCancelation(req.body , res.redirect("/viewCancel"));
 });
 
 app.get("/appointments", function(req,res){
-  res.sendFile(path.join(__dirname,"/views/appointments.html"));
+  res.render("appointments");
 });
 
 app.post("/appointments", function(req,res){
@@ -93,7 +94,7 @@ app.get("/viewCancel", (req, res) => {
 });
 
 app.get("/confirmcancelation", function(req,res){
-  res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
+  res.render("confirmcancelation");
 });  
 
 app.get('*', function(req, res){

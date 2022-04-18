@@ -1,0 +1,57 @@
+{{> header}}
+
+<body>
+  <h1>Study Room Reservations</h1>
+  <h2>Room Information</h2>
+  <p>Please enter the following information:</p>
+
+  <form method="post" action="/reservations">
+    
+    <fieldset>
+    <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
+    <input type="date" id="date" name="date" class="rvt-label" required><br></br>
+
+  <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
+  <input type="time" id="time" name="time" class="rvt-label"><br></br>
+ 
+  <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
+      <input list="numpeople" name="numpeople" placeholder="Select people in reservation"><br></br>
+      <datalist id="numpeople">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        </datalist>
+  
+      <label for="studyrooms" class="rvt-label">Select a study room number:</label><br>
+      <input list="studyrooms" name="studyrooms" placeholder="Select a study room"><br></br>
+      <datalist id="studyrooms">
+        <option value="KA116">
+        <option value="KA118">
+        <option value="KA147">
+        <option value="KA149">
+        <option value="KA155">
+        <option value="KA157">
+        <option value="KA220">
+        <option value="KA222">
+        <option value="KA224">
+        <option value="KA226">
+        </datalist>
+        
+    </br>
+    </fieldset>
+    <input type="submit" class="rvt-button rvt-button--success" value="Add Reservation" />
+  </form>
+  <a href = "/"><button class="rvt-button">Go Back </button></a> 
+  <div>
+  
+{{> footer }}
+
+<script src="https://unpkg.com/rivet-core@2.0.0-beta.2/js/rivet.min.js"></script>
+<script>
+Rivet.init();
+</script>

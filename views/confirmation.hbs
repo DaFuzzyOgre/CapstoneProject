@@ -1,0 +1,64 @@
+  <body class="rvt-layout">
+  
+{{> header }}
+  <!--Main content area-->
+  <main id="main-content" class="rvt-layout__wrapper">
+    
+
+  <h1>Confirmation</h1>
+  <p>Thank You!</p>
+  
+  <p>
+    Thank you for making your reservation at the IUK library. <br>
+    An email with your confirmation number has been sent.<br><br>
+    
+    <table style="width: 35%;">
+        <tr>
+            <th colspan="2">Reservation Information</th>
+        </tr>
+
+        <tr>
+            <td>Confirmation Number:</td>
+            <td><div id="conNum"></div></td>
+        </tr>
+  
+        <tr>
+            <td>Date:</td>
+            <td><div id="rDate"></div></td>
+        </tr>   
+    
+        <tr>
+            <td>Time:</td>
+            <td><div id="rTime"></div></td>
+        </tr>
+
+        <tr>
+            <td>Room Number:</td>
+            <td><div id="roomNum"></div></td>
+        </tr>
+    </table>
+
+    <img src="/images/Icons8_flat_approval.png"> 
+</p>
+<script>
+    fetch('/appointment.json').then(function(response) {
+      return response.json().then(data => {
+          let i = data.length - 1;
+          document.querySelector('#rDate').innerHTML = data[i].date
+          document.querySelector('#rTime').innerHTML = data[i].time
+          document.querySelector('#roomNum').innerHTML = data[i].studyrooms
+          document.querySelector('#conNum').innerHTML = data[i].confirmation
+      })
+    })
+</script>
+<div>
+    <a href = "/"><button class="rvt-button">Go Home </button></a>
+</div>
+  </main>
+
+{{> footer }}
+
+<script src="https://unpkg.com/rivet-core@2.0.0-beta.2/js/rivet.min.js"></script>
+<script>
+  Rivet.init();
+</script>
