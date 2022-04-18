@@ -4,6 +4,7 @@ var path = require("path");
 var express = require("express");
 var app = express();
 var multer = require("multer");
+var exphbs = require('express-handlebars');
 
 
 const bodyParser = require("body-parser");
@@ -20,6 +21,20 @@ function onHttpStart() {
     console.log("success");
 })};
 
+// Register '.handlebars' extension with exphbs
+app.engine('.hbs', exphbs.engine({
+  extname: '.hbs',
+  defaultLayout: "index.html",
+  partialsDir: path.join(__dirname, '/views/partials/')
+}));
+// Set our default template engine to "handlebars"
+app.set('view engine', '.hbs');
+
+app.get('/views/partials/', (req, res) => {
+  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
+  res.render('header.hbs', {layout : 'index.html'});
+  });
+  
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
     res.sendFile(path.join(__dirname,"/views/index.html"));
