@@ -1,0 +1,50 @@
+ 
+  
+  <!--Main content area-->
+  <main id="main-content" class="rvt-layout__wrapper">
+    
+
+  <h1>Confirmation</h1>
+  <p>Thank You!</p>
+  
+  <p>
+    Thank you for making your reservation at the IUK library. <br>
+    An email with your confirmation number has been sent.<br><br>
+    <div class="row">
+    
+        <div class="col-md-12">
+            <table style="width: 35%;">
+                <thead>
+                   Reservation Information
+                <tr>
+                    <th>Confirmation&nbsp;Number</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Room&nbsp;Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{lastReservation.confirmation}}</td>
+                        <td>{{lastReservation.date}}</td>
+                        <td>{{lastReservation.time}}</td>
+                        <td>{{lastReservation.studyrooms}}</td>                        
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        {{#unless reservations}}
+        <div class="col-md-12 text-center">
+                <strong>{{message}}</strong>
+        </div>
+        {{/unless}}
+    </div>
+
+    <img src="/images/Icons8_flat_approval.png"> 
+</p>
+<div>
+    <a href = "/"><button class="rvt-button">Go Home </button></a>
+</div>
+  </main>
+  

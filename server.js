@@ -1,14 +1,33 @@
-const fs = require('fs');
 var resService = require("./reservation-service.js");
 var path = require("path");
 var express = require("express");
 var app = express();
 var multer = require("multer");
-
-
 const bodyParser = require("body-parser");
 const { status } = require('express/lib/response');
+const exphbs = require('express-handlebars');
 
+app.engine('.hbs', exphbs.engine({ 
+  extname: '.hbs',
+  defaultLayout: "main",
+  helpers: { 
+      navLink: function(url, options){
+          return '<li' + 
+              ((url == app.locals.activeRoute) ? ' class="active" ' : '') + 
+              '><a href="' + url + '">' + options.fn(this) + '</a></li>';
+      },
+      equal: function (lvalue, rvalue, options) {
+          if (arguments.length < 3)
+              throw new Error("Handlebars Helper equal needs 2 parameters");
+          if (lvalue != rvalue) {
+              return options.inverse(this);
+          } else {
+              return options.fn(this);
+          }
+      }
+  } 
+}));
+app.set('view engine', '.hbs');
 
 var HTTP_PORT = process.env.PORT || 8080;
 
@@ -16,9 +35,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 function onHttpStart() {
   console.log("Express http server listening on: " + HTTP_PORT);
-  resService.initialize().then(function(){
-    console.log("success");
-})};
+};
 
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
@@ -38,15 +55,21 @@ app.post("/studentinfo", function(req,res){
   resService.addStudent(req.body , res.redirect("/confirmation"));
 });
 app.get("/confirmation", function(req,res){
-  resService.getReservations();
-  resService.writeReservation();
-  res.sendFile(path.join(__dirname,"/views/confirmation.html"));
+  resService.getReservations().then((data) => {
+    res.render("confirmation", {lastReservation:data});
+}).catch((err) => {
+    res.render("confirmation",{ message: "no results" });
+});
 });
 app.get("/cancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/cancelation.html"));
 });
 app.post("/cancelation", function(req,res){
-  resService.checkCancelation(req.body , res.redirect("/viewCancel"));
+  resService.cancelAppt(req.body).then(()=>{
+    res.redirect("/confirmcancelation");
+    }).catch((err) => {
+        res.status(500).send("Unable to Remove Appointment/ Appointment not found");
+    });
 });
 
 app.get("/appointments", function(req,res){
@@ -63,20 +86,7 @@ app.get("/viewAppointments", (req, res) => {
 }).catch((err) => {
     res.json({ message: "no results" });
 })
-
 });
-
-
-
-app.get("/viewCancel", (req, res) => {
-  resService.getCancelation().then((data) => {
-    res.json(data);
-}).catch((err) => {
-    res.json({ message: "no results" });
-})
-
-});
-
 app.get("/confirmcancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/confirmcancelation.html"));
 });  

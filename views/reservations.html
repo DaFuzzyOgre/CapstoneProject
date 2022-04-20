@@ -125,19 +125,47 @@
   <h1>Study Room Reservations</h1>
   <h2>Room Information</h2>
   <p>Please enter the following information:</p>
-  <script>
-    let currDate = Date();
-    currDate;
-</script>
+
   <form method="post" action="/reservations">
     
     <fieldset>
     <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
-    <input type="date" id="date" name="date" class="rvt-label" required><br></br>
-
+    <input type="date" id="date" name="date"><br></br>
+    <script>
+        var date  = new Date();
+        console.log(date)
+        var dateDay = date.getDate();
+        if (dateDay < 10)
+        {
+            dateDay = "0" + dateDay;
+        }
+        var dateMonth = date.getMonth() + 1;
+        if (dateMonth < 10)
+        {
+            dateMonth = "0" + dateMonth;
+        }
+        var dateYear = date.getFullYear();
+        var currDate = dateYear + "-" + dateMonth + "-" + dateDay;
+        document.getElementById("date").setAttribute("min", currDate);
+        let futureMonth = date.getMonth() + 3;
+        if (futureMonth <10)
+        {
+            futureMonth = "0" + futureMonth;
+        }
+        else if (futureMonth = 13)
+        {
+            futureMonth = 1;
+        }
+        else if (futureMonth = 14)
+        {
+            futureMonth = 2;
+        }
+        console.log(futureMonth);
+        var futureDate = dateYear + "-" + futureMonth + "-" + dateDay;
+        document.getElementById("date").setAttribute("max", futureDate);
+    </script>
   <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
   <input type="time" id="time" name="time" class="rvt-label"><br></br>
- 
   <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
       <input list="numpeople" name="numpeople" placeholder="Select people in reservation"><br></br>
       <datalist id="numpeople">
