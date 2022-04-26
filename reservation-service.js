@@ -18,7 +18,8 @@ function pause(ms) {
   }
 
 const Reservation = mongoose.model('Reservation', Schema({
-    name:String, 
+    fname:String,
+    lname:String, 
     idnum:String,
     email:String,
     reservation:String,
