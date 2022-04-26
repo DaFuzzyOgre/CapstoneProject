@@ -52,7 +52,7 @@ module.exports.addStudent=function(studentData){
         }
         let confirmNum= getRandomInt(100000);
         let i=reservationArray.length -1;
-        Object.assign(reservationArray[i], {name: studentData.name, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation, delete: "False", confirmation:confirmNum});
+        Object.assign(reservationArray[i], {fname: studentData.fname, lname: studentData.lname, idnum: studentData.idnum, email: studentData.email, reservation: studentData.reservation, delete: "False", confirmation:confirmNum});
         Object.keys(reservationArray).forEach(
             (key) => (reservationArray[key] === "") ? reservationArray[key] = null : reservationArray[key]
         );
