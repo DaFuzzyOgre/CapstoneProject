@@ -76,6 +76,10 @@ app.get("/appointments", function(req,res){
   res.sendFile(path.join(__dirname,"/views/appointments.html"));
 });
 
+app.get("/rejection", function(req,res){
+      res.render("rejectcancelation");
+});
+
 app.post("/appointments", function(req,res){
   resService.getQuery(req.body , res.redirect("/viewAppointments"));
 });
