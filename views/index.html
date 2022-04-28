@@ -107,7 +107,19 @@
         div{
           text-align: center;
         }
-        @media only screen and (max-width: 1079px) {
+        
+        table{
+        border: 1px solid;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        th{
+        text-align: center; 
+        background-color: #006298; 
+        color: white;
+        
+        @media all and (max-width: 1079px) {
         table{
           padding: 0px;
           display: table;
@@ -116,8 +128,9 @@
 
         .rvt-button:hover{
             font-size: 20px;
+          }
         }
-      }
+    }
       </style>
   </header>
     <!--Main content area-->
@@ -135,7 +148,7 @@
                     
                     <a href="/reservations" class="rvt-button">Reserve a Study Room</a>
     
-                    <a href="/cancelation" class="rvt-button">Cancel an Existing Study Room</a>
+                    <a href="/cancelation" class="rvt-button">Cancel Existing Study Room</a>
     
                   </div>
     
@@ -215,150 +228,42 @@
             </div>
           </div>
         </div>
+        <br>
     
                   <!-- Library Hours table -->
-                  <div class="rvt-box rvt-p-top-2-md-up rvt-p-bottom-3-xl-md-up">
-                      <div class="rvt-box__body">
-                        <div class="rvt-container--center" style="max-width: 35%">
-                            <table class="rvt-table-cells">
-                                <caption class="rvt-sr-only">Library Hours Table</caption>
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Library Hours</th>
-                                    <th scope=""></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">Mondays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">Tuesdays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">Wednesdays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">Thursdays</th>
-                                    <td>8:00 a.m. - 9 p.m.</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">Fridays</th>
-                                    <td>8:00 a.m. - 5 p.m.</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">Saturdays</th>
-                                    <td>12 - 5 p.m.</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">Sundays</th>
-                                    <td>1 - 7 p.m.</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              
-                </div>
-                </div>
-                </div>
-    
-                <!-- Study room description table -->
-                <div class="rvt-box">
-                    <div class="rvt-box__body">
-                      <div class="rvt-container--center" style="max-width: 25%">
-                          <table class="rvt-table-compact">
-                              <caption class="rvt-sr-only">Room Description Table</caption>
-                              <thead>
-                                <tr>
-                                  <th scope="col">Study Room</th>
-                                  <th scope="col">Capacity</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">KA 116 – Lobby area</th>
-                                  <td>8</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">KA 118 – Lobby area</th>
-                                  <td>8</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">KA 147 – West Commons</th>
-                                  <td>6</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">KA 149 – West Commons</th>
-                                  <td>6</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">KA 155 – West Commons</th>
-                                  <td>6</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">KA 157 – West Commons</th>
-                                  <td>6</td>
-                                </tr>
-                              </tbody>
-                            </table>
-    
-                            <table class="rvt-table-compact">
-                                <caption class="rvt-sr-only">Room Description Table</caption>
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Study Room</th>
-                                    <th scope="col">Capacity</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">KA 220</th>
-                                    <td>6</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">KA 222</th>
-                                    <td>6</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">KA 224</th>
-                                    <td>6</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">KA 226</th>
-                                    <td>6</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-    
-                              <table class="rvt-table-compact">
-                                <caption class="rvt-sr-only">Room Description Table</caption>
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Study Room</th>
-                                    <th scope="col">Capacity</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">KA 159 - West Commons</th>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">KA 160 - West Commons</th>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">KA 161 - West Commons</th>
-                                    <td>2</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            
-              </div>
-              </div>
-              </div>
+                  <table style="width: 30%;">
+                    <tr>
+                      <th colspan="2" style ="font-weight: bold;">Library Hours</th>
+                    </tr>
+                    <tr>
+                      <td>Monday</td>
+                      <td>8:00 am&#8212;9 pm</td>
+                    </tr>
+                    <tr>
+                      <td>Tuesday</td>
+                      <td>8:00 am&#8212;9 pm</td>
+                    </tr>
+                    <tr>
+                      <td>Wednesday</td>
+                      <td>8:00 am&#8212;9 pm</td>
+                    </tr>
+                    <tr>
+                      <td>Thursday</td>
+                      <td>8:00 am&#8212;9 pm</td>
+                    </tr>
+                    <tr>
+                      <td>Friday</td>
+                      <td>8:00 am&#8212;5 pm</td>
+                    </tr>
+                    <tr>
+                      <td>Saturday</td>
+                      <td>12&#8212;5 pm</td>
+                    </tr>
+                    <tr>
+                      <td>Sunday</td>
+                      <td>1&#8212;7 pm</td>
+                    </tr>
+                  </table>
             </div>
            
         </div>

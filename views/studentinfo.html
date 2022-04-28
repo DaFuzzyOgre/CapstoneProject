@@ -9,6 +9,7 @@
     <title>Study Room Reservation</title>
     <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
+    
   </head>
   <body class="rvt-layout">
   
@@ -109,6 +110,9 @@
         div{
           text-align: center;
         }
+
+        @media only screen and (max-width: 1079px) {
+        }
       </style>
   </header>
 
@@ -118,17 +122,17 @@
     <p>Please enter the following information:</p>
     <form method="post" action="/studentinfo">
     
-        <fieldset>
+    <fieldset>
      <label for="fname" class="rvt-label">First Name</label><br>
-    <input type="text" id="fname" name="fname" class="rvt-label" placeholder="John" maxlength=30><br>
+    <input type="text" id="fname" name="fname" class="rvt-label" placeholder="John" maxlength=30 required><br>
     <label for="lname" class="rvt-label">Last Name</label><br>
-    <input type="text" id="lname" name="lname" class="rvt-label" placeholder="Doe" maxlength=30><br>
+    <input type="text" id="lname" name="lname" class="rvt-label" placeholder="Doe" maxlength=30 required><br>
     <label for="idnum" class="rvt-label">Student ID Number</label><br>
-    <input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10><br><br>
+    <input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10 required><br><br>
     <label for="email" class="rvt-label"></label>IU Email Address<br>
-    <input type="text" id="email" name="email" class="rvt-label" placeholder="student@iu.edu"> <br><br>
+    <input type="text" id="email" name="email" class="rvt-label" placeholder="student@iu.edu" required> <br><br>
     <label for="reservation" class="rvt-label">Reservation Name (To Appear on Door)</label><br>
-    <input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="John Doe"><br><br>
+    <input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="John Doe" required><br><br>
    
     <br/>
 </fieldset>
@@ -152,7 +156,7 @@
                     <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
                 </li>
                 <li class="rvt-footer-base__item">
-                    <a class="rvt-footer-base__link" href="#0">Privacy Notice</a>
+                    <a class="rvt-footer-base__link" href="https://www.iuk.edu/uits/privacy-policy.html/">Privacy Notice</a>
                 </li>
                 <li class="rvt-footer-base__item">
                     Copyright</a> © 2021 The Trustees of Indiana University

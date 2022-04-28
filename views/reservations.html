@@ -114,29 +114,114 @@
       div{
         text-align: center;
       }
+      table{
+        border: 1px solid;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      th{
+        text-align: center; 
+        background-color: #006298; 
+        color: white;
+
+      }
+
       @media only screen and (max-width: 1079px) {
         table{
           padding: 0px;
           display: table;
           white-space: nowrap;
         }
+    }
     </style>
 </header>
-
-
-
-
-
 <body>
   <h1>Study Room Reservations</h1>
   <h2>Room Information</h2>
+
+  <!-- Study room description table -->
+  <table style="max-width: 30%;">
+    <tr>
+      <th colspan="3" style ="font-weight: bold;">First Floor</th>
+    </tr>
+    <tr>
+      <td>KA 116</td>
+      <td>Lobby area</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>KA 118</td>
+      <td>Lobby area</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>KA 147</td>
+      <td>West Commons</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>KA 149</td>
+      <td>West Commons</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>KA 155</td>
+      <td>West Commons</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>KA 157</td>
+      <td>West Commons</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>KA 159</td>
+      <td>West Commons</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>KA 160</td>
+      <td>West Commons</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>KA 161</td>
+      <td>West Commons</td>
+      <td>2</td>
+    </tr>
+      <tr>
+        <th colspan="3" style ="font-weight: bold;">Second Floor</th>
+      </tr>
+      <tr>
+        <td>KA 220</td>
+        <td>    </td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>KA 222</td>
+        <td>    </td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>KA 224</td>
+        <td>    </td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>KA 226</td>
+        <td>    </td>
+        <td>6</td>
+      </tr>
+  </table>
+
   <p>Please enter the following information:</p>
 
   <form method="post" action="/reservations">
     
     <fieldset>
     <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
-    <input type="date" id="date" name="date"><br></br>
+    <input type="date" id="date" name="date"required ><br></br>
     <script>
         var date  = new Date();
         console.log(date)
@@ -171,9 +256,9 @@
         document.getElementById("date").setAttribute("max", futureDate);
     </script>
   <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
-  <input type="time" id="time" name="time" class="rvt-label"><br></br>
+  <input type="time" id="time" name="time" class="rvt-label" required><br></br>
   <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
-      <input list="numpeople" name="numpeople" placeholder="Select people in reservation"><br></br>
+      <input list="numpeople" name="numpeople" placeholder="Select people in reservation" required><br></br>
       <datalist id="numpeople">
         <option value="1">
         <option value="2">
@@ -186,7 +271,7 @@
         </datalist>
   
       <label for="studyrooms" class="rvt-label">Select a study room number:</label><br>
-      <input list="studyrooms" name="studyrooms" placeholder="Select a study room"><br></br>
+      <input list="studyrooms" name="studyrooms" placeholder="Select a study room" required><br></br>
       <datalist id="studyrooms">
         <option value="KA116">
         <option value="KA118">
@@ -206,7 +291,8 @@
   </form>
   <a href = "/"><button class="rvt-button">Return to Home</button></a> 
   <div>
-  
+    <br>
+  </body>
 
 
 <footer class="rvt-footer-base">
