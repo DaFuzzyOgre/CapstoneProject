@@ -114,29 +114,35 @@
 
   <body>
     <h1>Study Room Reservations</h1>
-    <h2>Student Information</h2>
-    <p>Please enter the following information:</p>
+    <h2>Student Information<br></br></h2>
+    
     <form method="post" action="/studentinfo">
     
-        <fieldset>
+<fieldset>
+    <legend>Please enter the following information:</legend>
+    <br></br>
      <label for="fname" class="rvt-label">First Name</label><br>
-    <input type="text" id="fname" name="fname" class="rvt-label" placeholder="John" maxlength=30><br>
+    <input type="text" id="fname" name="fname" class="rvt-label" placeholder="John" maxlength=30><br><br>
     <label for="lname" class="rvt-label">Last Name</label><br>
-    <input type="text" id="lname" name="lname" class="rvt-label" placeholder="Doe" maxlength=30><br>
+    <input type="text" id="lname" name="lname" class="rvt-label" placeholder="Doe" maxlength=30><br><br>
     <label for="idnum" class="rvt-label">Student ID Number</label><br>
     <input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10><br><br>
     <label for="email" class="rvt-label"></label>IU Email Address<br>
-    <input type="text" id="email" name="email" class="rvt-label" placeholder="student@iu.edu"> <br><br>
+    <input type="text" id="email" name="email" class="rvt-label" placeholder="student@iu.edu"><br><br>
     <label for="reservation" class="rvt-label">Reservation Name (To Appear on Door)</label><br>
     <input type="text" id="reservation" name="reservation" class="rvt-label" placeholder="John Doe"><br><br>
    
-    <br/>
+</br>
 </fieldset>
+<br></br>
+
+<div class="buttons">
 <input type="submit" class="rvt-button rvt-button--success" value="Add Reservation" />
 </form>
+
 <a href = "/reservations"><button class="rvt-button">Go Back </button></a>  
-<div>
 </div>
+<br></br>
 </body>
 
 <footer class="rvt-footer-base">
