@@ -65,8 +65,12 @@ app.get("/cancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/cancelation.html"));
 });
 app.post("/cancelation", function(req,res){
-  resService.cancelAppt(req.body).then(()=>{
-    res.redirect("/confirmcancelation");
+  resService.cancelAppt(req.body).then((result)=>{
+    if (result.deletedCount == 0)
+    {
+      res.redirect("/");
+    }
+    else{res.redirect("/confirmcancelation");}
     }).catch((err) => {
         res.status(500).send("Unable to Remove Appointment/ Appointment not found");
     });

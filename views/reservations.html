@@ -224,7 +224,6 @@
     <input type="date" id="date" name="date"required ><br></br>
     <script>
         var date  = new Date();
-        console.log(date)
         var dateDay = date.getDate();
         if (dateDay < 10)
         {
@@ -251,12 +250,84 @@
         {
             futureMonth = 2;
         }
-        console.log(futureMonth);
         var futureDate = dateYear + "-" + futureMonth + "-" + dateDay;
         document.getElementById("date").setAttribute("max", futureDate);
     </script>
+    <button type="button" onclick="getDesiredDate();">Check Available Times</button>
+    <script>
+      function getDesiredDate(){
+          var desiredDate= "";
+          desiredDate =document.getElementById("date").value;
+         var desiredDateDay = new Date(desiredDate).getDay();
+          console.log(desiredDateDay);
+          if (desiredDateDay == 0 || desiredDateDay == 1 || desiredDateDay == 2 || desiredDateDay == 3){
+            document.getElementById("time").setAttribute("min", "08:00");
+            //document.getElementById("time").setAttribute("max,XXXXX");
+          }
+          else if(desiredDateDay == 4){
+
+          }
+          else if (desiredDateDay == 5){
+
+          }
+          else {
+
+          }
+          var date  = new Date();
+        var dateDay = date.getDate();
+        if (dateDay < 10)
+        {
+            dateDay = "0" + dateDay;
+        }
+        var dateMonth = date.getMonth() + 1;
+        if (dateMonth < 10)
+        {
+            dateMonth = "0" + dateMonth;
+        }
+        var dateYear = date.getFullYear();
+        var currDate = dateYear + "-" + dateMonth + "-" + dateDay;
+        console.log(currDate);
+        var dDateDay = new Date(desiredDate).getDate();
+        var dDateMonth = new Date(desiredDate).getMonth();
+        var dDateYear = new Date(desiredDate).getFullYear();
+        dDateDay = dDateDay + 1;
+        if (dDateDay < 10)
+        {
+            dDateDay = "0" + dDateDay;
+        }
+        dDateMonth = dDateMonth + 1;
+        if (dDateMonth < 10)
+        {
+            dDateMonth = "0" + dDateMonth;
+        }
+        var resDate = dDateYear + "-" + dDateMonth + "-" + dDateDay;
+        console.log(resDate);
+        if (currDate == resDate)
+        {
+          var timeHour = new Date().getHours();
+          if (timeHour < 10){
+            timeHour = "0" + timeHour;
+          }
+          var timeMinutes = new Date().getMinutes();
+          if (timeMinutes <10){
+            timeMinutes = "0" + timeMinutes;
+          }
+          var dateTime = timeHour + ":" + timeMinutes;
+          console.log(dateTime);
+          document.getElementById("time").setAttribute("min", dateTime);
+        }
+      }
+  </script>
+  <br>
   <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
   <input type="time" id="time" name="time" class="rvt-label" required><br></br>
+  <button type="button" onclick="getDesiredTime();">Check Available Times</button>
+  <script>
+    function getDesiredTime(){
+        var desiredTime= document.getElementById("time").value;
+       console.log(desiredTime);
+        }
+</script>
   <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
       <input list="numpeople" name="numpeople" placeholder="Select people in reservation" required><br></br>
       <datalist id="numpeople">
