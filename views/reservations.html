@@ -262,16 +262,19 @@
           console.log(desiredDateDay);
           if (desiredDateDay == 0 || desiredDateDay == 1 || desiredDateDay == 2 || desiredDateDay == 3){
             document.getElementById("time").setAttribute("min", "08:00");
-            //document.getElementById("time").setAttribute("max,XXXXX");
+            document.getElementById("time").setAttribute("max","21:00");
           }
           else if(desiredDateDay == 4){
-
+            document.getElementById("time").setAttribute("min", "08:00");
+            document.getElementById("time").setAttribute("max","17:00");
           }
           else if (desiredDateDay == 5){
-
+            document.getElementById("time").setAttribute("min", "12:00");
+            document.getElementById("time").setAttribute("max","17:00");
           }
-          else {
-
+          else if (desiredDateDay == 6) {
+            document.getElementById("time").setAttribute("min", "13:00");
+            document.getElementById("time").setAttribute("max","19:00");
           }
           var date  = new Date();
         var dateDay = date.getDate();
