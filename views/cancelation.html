@@ -8,6 +8,17 @@
         <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
         <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
         <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
+
+        <script>
+        function confirmCancel(){
+            if(confirm("Are you sure you want to cancel this reservation?")){
+            window.location = "confirmcancelation.html";
+             }else{
+                window.location = "/";
+            }
+        }
+        </script>
+
     </head>
       <body class="rvt-layout">
       
@@ -132,10 +143,11 @@
 <br></br>
 
     <div class="buttons">
-    <input type="submit" class="rvt-button rvt-button--success" value="Add Cancelation" />
+    <input type="submit" class="rvt-button rvt-button--success" value="Add Cancelation" onclick = "confirmCancel()" />
 </form>
 <a href = "/"><button class="rvt-button">Return to Home</button></a> 
     </div>
+    
 <br></br>
 
 <footer class="rvt-footer-base">
