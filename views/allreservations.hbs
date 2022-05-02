@@ -29,7 +29,7 @@
                         <td>{{studyrooms}}</td>
                         <td>{{confirmation}}</td>
                         <td><button>Update</button></td>
-                        <td><a href="/appointments/delete/{{confirmation}}"><button>Delete</button></a></td>                        
+                        <td><a href="/appointments/delete/{{confirmation}}" onclick="return confirm('Are you sure you want to delete this appointment?')"><button>Delete</button></a></td>                        
                     </tr>
                      {{/each}}
                 </tbody>
