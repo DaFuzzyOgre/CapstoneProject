@@ -83,14 +83,13 @@ module.exports.getReservations = async function(){
 
 module.exports.cancelAppt = function (cancelInfo) {
     return new Promise(function (resolve, reject) {
-       Reservation.deleteOne({confirmation: cancelInfo.confirmation}, function(err, result){
+       Reservation.deleteOne({confirmation: cancelInfo.confirmation, idnum: cancelInfo.idnum}, function(err, result){
         if (err){
             reject("Error Finding Data")
         }
         else {
             console.log(result);
-            resolve(result);
-            
+            resolve(result);          
         
         }
        })
@@ -125,6 +124,15 @@ module.exports.compareQuery=function(){
            resolve(matchArray)
     })
 }
+module.exports.getAllReservations = async function(){
+    return new Promise((resolve,reject)=>{
+        Reservation.find({})
+        .exec()
+        .then((reservations) => {
+         reservations = reservations.map(value => value.toObject());   
+         resolve(reservations);
+    })
+})};
 module.exports.nullArray=function(){
 
     reservationArray=[];
@@ -132,7 +140,18 @@ module.exports.nullArray=function(){
     cancelInfo=[];
     elementarray=[];
     reservationData=[];
-
+   }
    
+   module.exports.deleteAppointmentByConfirm = function (cancelInfo) {
+    return new Promise(function (resolve, reject) {
+       Reservation.deleteOne({confirmation: cancelInfo}, function(err, result){
+        if (err){
+            reject("Error Finding Data")
+        }
+        else {
+            resolve(result);          
         
-    }
+        }
+       })
+       
+})};

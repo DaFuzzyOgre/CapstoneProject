@@ -1,0 +1,38 @@
+
+               <div class="col-md-12">
+            <table style="width: 25%;">
+                <thead>
+                   <h2>Reservation Information:</h2>
+                   <br>
+                <tr>
+                    <th>First&nbsp;Name</th>
+                    <th>Last&nbsp;Name</th>
+                    <th>Email</th>                    
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>#&nbsp;of&nbsp;Students</th>
+                    <th>Room&nbsp;Number</th>
+                    <th>Confirmation&nbsp;#</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each reservations}}
+                    <tr>
+                        <td>{{fname}}</td>
+                        <td>{{lname}}</td>
+                        <td>{{email}}</td>                        
+                        <td>{{date}}</td>
+                        <td>{{time}}</td>
+                        <td>{{numpeople}}</td>
+                        <td>{{studyrooms}}</td>
+                        <td>{{confirmation}}</td>
+                        <td><button>Update</button></td>
+                        <td><a href="/appointments/delete/{{confirmation}}"><button>Delete</button></a></td>                        
+                    </tr>
+                     {{/each}}
+                </tbody>
+            </table>
+            </div>
+           

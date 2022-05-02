@@ -76,10 +76,23 @@ app.post("/cancelation", function(req,res){
     });
 });
 
+app.get("/allappointments", function(req,res){
+  resService.getAllReservations().then((data) => {
+    res.render("allreservations", {reservations:data});
+  }).catch((err) => {
+      res.render("allreservations",{ message: "no results" });
+  });
+  });
 app.get("/appointments", function(req,res){
   res.sendFile(path.join(__dirname,"/views/appointments.html"));
 });
-
+app.get("/appointments/delete/:confirmation", (req,res) => {
+  resService.deleteAppointmentByConfirm(req.params.confirmation).then(()=>{
+      res.redirect("/allappointments");
+  }).catch((err) => {
+      res.status(500).send("Unable to Remove Appointment");
+  });
+});
 app.get("/rejection", function(req,res){
       res.render("rejectcancelation");
 });
