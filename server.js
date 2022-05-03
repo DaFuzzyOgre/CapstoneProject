@@ -96,6 +96,7 @@ app.post("/editinfo", function(req,res){
   resService.addReservation(req.body , res.redirect("/views/editinfo.html"));
 });
 
+
 app.get("/allappointments", function(req,res){
   resService.getAllReservations().then((data) => {
     res.render("allreservations", {reservations:data});

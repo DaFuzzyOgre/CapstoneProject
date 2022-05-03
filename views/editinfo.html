@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
-  <title>Study Room Reservation</title>
+  <title>Edit Study Room Reservation Information</title>
   <link href="https://assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
   <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.0.0-beta.2/css/rivet.min.css">
   <link rel="stylesheet" type="text/css"   href="/css/stylesheet.css">
@@ -114,119 +114,24 @@
       div{
         text-align: center;
       }
-      table{
-        border: 1px solid;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      th{
-        text-align: center; 
-        background-color: #006298; 
-        color: white;
-
-      }
 
       @media only screen and (max-width: 1079px) {
-        table{
-          padding: 0px;
-          display: table;
-          white-space: nowrap;
-        }
     }
     </style>
 </header>
 <body>
-  <h1>Study Room Reservations</h1>
-  <h2>Room Information</h2>
+  <h1>Edit Study Room Reservation(s)</h1>
 
-  <!-- Study room description table -->
-  <table style="max-width: 30%;">
-    <tr>
-      <th colspan="3" style ="font-weight: bold;">First Floor</th>
-    </tr>
-    <tr>
-      <td>KA 116</td>
-      <td>Lobby area</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>KA 118</td>
-      <td>Lobby area</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>KA 147</td>
-      <td>West Commons</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>KA 149</td>
-      <td>West Commons</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>KA 155</td>
-      <td>West Commons</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>KA 157</td>
-      <td>West Commons</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>KA 159</td>
-      <td>West Commons</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>KA 160</td>
-      <td>West Commons</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>KA 161</td>
-      <td>West Commons</td>
-      <td>2</td>
-    </tr>
-    </table>
-
-    <table style="max-width: 30%;">
-      <tr>
-        <th colspan="3" style ="font-weight: bold;">Second Floor</th>
-      </tr>
-      <tr>
-        <td>KA 220</td>
-        <td>    </td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>KA 222</td>
-        <td>    </td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>KA 224</td>
-        <td>    </td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>KA 226</td>
-        <td>    </td>
-        <td>6</td>
-      </tr>
-  </table>
-
-  <p>Please enter the following information:</p>
+  <p>Please edit the following information you would like to change:</p>
 
   <form method="post" action="/reservations">
     
-    <fieldset style="border-width:0px" >
+    <fieldset>
     <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
     <input type="date" id="date" name="date"required ><br></br>
     <script>
         var date  = new Date();
+        console.log(date)
         var dateDay = date.getDate();
         if (dateDay < 10)
         {
@@ -253,78 +158,10 @@
         {
             futureMonth = 2;
         }
+        console.log(futureMonth);
         var futureDate = dateYear + "-" + futureMonth + "-" + dateDay;
         document.getElementById("date").setAttribute("max", futureDate);
     </script>
-    <button type="button" onclick="getDesiredDate();">Check Available Times</button>
-    <script>
-      function getDesiredDate(){
-          var desiredDate= "";
-          desiredDate =document.getElementById("date").value;
-         var desiredDateDay = new Date(desiredDate).getDay();
-          console.log(desiredDateDay);
-          if (desiredDateDay == 0 || desiredDateDay == 1 || desiredDateDay == 2 || desiredDateDay == 3){
-            document.getElementById("time").setAttribute("min", "08:00");
-            document.getElementById("time").setAttribute("max","21:00");
-          }
-          else if(desiredDateDay == 4){
-            document.getElementById("time").setAttribute("min", "08:00");
-            document.getElementById("time").setAttribute("max","17:00");
-          }
-          else if (desiredDateDay == 5){
-            document.getElementById("time").setAttribute("min", "12:00");
-            document.getElementById("time").setAttribute("max","17:00");
-          }
-          else if (desiredDateDay == 6) {
-            document.getElementById("time").setAttribute("min", "13:00");
-            document.getElementById("time").setAttribute("max","19:00");
-          }
-          var date  = new Date();
-        var dateDay = date.getDate();
-        if (dateDay < 10)
-        {
-            dateDay = "0" + dateDay;
-        }
-        var dateMonth = date.getMonth() + 1;
-        if (dateMonth < 10)
-        {
-            dateMonth = "0" + dateMonth;
-        }
-        var dateYear = date.getFullYear();
-        var currDate = dateYear + "-" + dateMonth + "-" + dateDay;
-        console.log(currDate);
-        var dDateDay = new Date(desiredDate).getDate();
-        var dDateMonth = new Date(desiredDate).getMonth();
-        var dDateYear = new Date(desiredDate).getFullYear();
-        dDateDay = dDateDay + 1;
-        if (dDateDay < 10)
-        {
-            dDateDay = "0" + dDateDay;
-        }
-        dDateMonth = dDateMonth + 1;
-        if (dDateMonth < 10)
-        {
-            dDateMonth = "0" + dDateMonth;
-        }
-        var resDate = dDateYear + "-" + dDateMonth + "-" + dDateDay;
-        console.log(resDate);
-        if (currDate == resDate)
-        {
-          var timeHour = new Date().getHours();
-          if (timeHour < 10){
-            timeHour = "0" + timeHour;
-          }
-          var timeMinutes = new Date().getMinutes();
-          if (timeMinutes <10){
-            timeMinutes = "0" + timeMinutes;
-          }
-          var dateTime = timeHour + ":" + timeMinutes;
-          console.log(dateTime);
-          document.getElementById("time").setAttribute("min", dateTime);
-        }
-      }
-  </script>
-  <br>
   <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
   <input type="time" id="time" name="time" class="rvt-label" required><br></br>
   <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
@@ -357,23 +194,24 @@
         
     </br>
     </fieldset>
-    <input type="submit" class="rvt-button rvt-button--success" value="Continue" />
+    <input type="submit" class="rvt-button rvt-button--success" value="Change Reservation Info" />
   </form>
-  <a href = "/"><button class="rvt-button">Return to Home</button></a> 
+  <a href = "/edithome"><button class="rvt-button">Go Back</button></a> 
   <div>
     <br>
   </body>
 
 
+
 <footer class="rvt-footer-base">
-  <div class="rvt-container-lg">
-      <div class="rvt-footer-base__inner">
-          <div class="rvt-footer-base__logo">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19" fill="#231f20" />
-              </svg>
-          </div>
-         <ul class="rvt-footer-base__list">
+    <div class="rvt-container-lg">
+        <div class="rvt-footer-base__inner">
+            <div class="rvt-footer-base__logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19" fill="#231f20" />
+                </svg>
+            </div>
+            <ul class="rvt-footer-base__list">
                 <li class="rvt-footer-base__item">
                     <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
                 </li>
@@ -384,10 +222,12 @@
                     Copyright</a> © 2021 The Trustees of Indiana University
                 </li>
             </ul>
-      </div>
-  </div>
+        </div>
+    </div>
 </footer>
 <script src="https://unpkg.com/rivet-core@2.0.0-beta.2/js/rivet.min.js"></script>
 <script>
-Rivet.init();
+  Rivet.init();
 </script>
+</body>
+</html>  
