@@ -68,7 +68,7 @@ app.post("/cancelation", function(req,res){
   resService.cancelAppt(req.body).then((result)=>{
     if (result.deletedCount == 0)
     {
-      res.redirect("/");
+      res.redirect("/cancelationfailure");
     }
     else{res.redirect("/confirmcancelation");}
     }).catch((err) => {
@@ -95,7 +95,8 @@ app.get("/editinfo", function(req,res){
 app.post("/editinfo", function(req,res){
   resService.addReservation(req.body , res.redirect("/views/editinfo.html"));
 });
-
+app.get("/cancelationfailure", function(req, res){
+  res.render("cancelationfailure");
 
 app.get("/allappointments", function(req,res){
   resService.getAllReservations().then((data) => {
