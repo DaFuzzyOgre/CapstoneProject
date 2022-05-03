@@ -65,12 +65,17 @@ app.get("/cancelation", function(req,res){
   res.sendFile(path.join(__dirname,"/views/cancelation.html"));
 });
 app.post("/cancelation", function(req,res){
-  resService.cancelAppt(req.body).then(()=>{
-    res.redirect("/confirmcancelation");
+  resService.cancelAppt(req.body).then((result)=>{
+    if (result.deletedCount == 0)
+    {
+      res.redirect("/");
+    }
+    else{res.redirect("/confirmcancelation");}
     }).catch((err) => {
         res.status(500).send("Unable to Remove Appointment/ Appointment not found");
     });
 });
+
 
 app.get("/edithome", function(req,res){
   res.sendFile(path.join(__dirname,"/views/edithome.html"));
@@ -91,8 +96,27 @@ app.post("/editinfo", function(req,res){
   resService.addReservation(req.body , res.redirect("/views/editinfo.html"));
 });
 
+
+app.get("/allappointments", function(req,res){
+  resService.getAllReservations().then((data) => {
+    res.render("allreservations", {reservations:data});
+  }).catch((err) => {
+      res.render("allreservations",{ message: "no results" });
+  });
+  });
+
 app.get("/appointments", function(req,res){
   res.sendFile(path.join(__dirname,"/views/appointments.html"));
+});
+app.get("/appointments/delete/:confirmation", (req,res) => {
+  resService.deleteAppointmentByConfirm(req.params.confirmation).then(()=>{
+      res.redirect("/allappointments");
+  }).catch((err) => {
+      res.status(500).send("Unable to Remove Appointment");
+  });
+});
+app.get("/rejection", function(req,res){
+      res.render("rejectcancelation");
 });
 
 app.post("/appointments", function(req,res){

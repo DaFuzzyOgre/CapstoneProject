@@ -108,6 +108,11 @@
           div{
             text-align: center;
           }
+          .cBox{
+            padding-left: 25%;
+            padding-right: 25%;
+            
+          }
 
           @media only screen and (max-width: 1079px) {
           }
@@ -115,11 +120,13 @@
       </header>
 <body>
   <h1>Study Room Cancelation</h1>
+  <div class="cBox">
 <p>To cancel your study room reservation, enter the following information
    and click "Add Cancelation". If you do NOT wish to cancel your study room
     reservation, click "Return to Home".</p>
+    </div>
 <form method="post"action="/cancelation">    
-    <fieldset>
+    <fieldset style="border-width:0px" >
   <label for="idnum" class="rvt-label">Student ID Number</label><br>
   <input type="number" id="idnum" name="idnum" class="rvt-label" placeholder="0123456789" maxlength=10 required><br><br>
   <label for="confirmation" class="rvt-label">Confirmation Number</label><br>
