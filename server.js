@@ -76,6 +76,26 @@ app.post("/cancelation", function(req,res){
     });
 });
 
+
+app.get("/edithome", function(req,res){
+  res.sendFile(path.join(__dirname,"/views/edithome.html"));
+});
+app.post("/edithome", function(req,res){
+  resService.cancelAppt(req.body).then(()=>{
+    res.redirect("/editinfo");
+    }).catch((err) => {
+        res.status(500).send("Unable to find existing reservation");
+    });
+});
+
+app.get("/editinfo", function(req,res){
+  res.sendFile(path.join(__dirname,"/views/editinfo.html"));
+});
+
+app.post("/editinfo", function(req,res){
+  resService.addReservation(req.body , res.redirect("/views/editinfo.html"));
+});
+
 app.get("/allappointments", function(req,res){
   resService.getAllReservations().then((data) => {
     res.render("allreservations", {reservations:data});
@@ -83,6 +103,7 @@ app.get("/allappointments", function(req,res){
       res.render("allreservations",{ message: "no results" });
   });
   });
+
 app.get("/appointments", function(req,res){
   res.sendFile(path.join(__dirname,"/views/appointments.html"));
 });
