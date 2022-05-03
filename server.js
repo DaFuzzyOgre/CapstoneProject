@@ -96,7 +96,7 @@ app.post("/editinfo", function(req,res){
   resService.addReservation(req.body , res.redirect("/views/editinfo.html"));
 });
 app.get("/cancelationfailure", function(req, res){
-  res.render("cancelationfailure");
+  res.render("cancelationfailure");});
 
 app.get("/allappointments", function(req,res){
   resService.getAllReservations().then((data) => {
