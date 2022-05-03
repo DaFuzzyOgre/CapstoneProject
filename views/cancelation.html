@@ -132,7 +132,15 @@
   <label for="confirmation" class="rvt-label">Confirmation Number</label><br>
   <input type="number" id="confirmation" name="confirmation" class="rvt-label" placeholder="98765" maxlength=5 required><br><br>
   </fieldset>
-    <input type="submit" class="rvt-button rvt-button--success" value="Add Cancelation" />
+  <script>
+    function confirmCancel(e)
+    {
+        if(!confirm('Proceed with cancelation?')) {
+            e.preventDefault();
+        }
+    }
+    </script>
+    <input type="submit" class="rvt-button rvt-button--success" value="Add Cancelation" onclick="confirmCancel(event)" />
 </form><br>
 <a href = "/"><button class="rvt-button">Return to Home</button></a><br> 
 </body>
