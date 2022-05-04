@@ -99,7 +99,10 @@ app.post("/edithome", function(req,res){
       }).catch((err) => {
           res.status(404).send("No Appointments on that date")});
       });
-    
+
+      app.get("/updateedit", function(req,res){
+        res.render("updateedit");
+      });
 
 app.get("/editinfo", function(req,res){
   res.render("editinfo", {newAppointment:appointmentInfo});
@@ -108,7 +111,7 @@ app.get("/editinfo", function(req,res){
 app.post("/editinfo", function(req,res){
   resService.updateAppointment(req.body).then((data) => {
     if (data.matchedCount = 1){
-      res.redirect("/");
+      res.redirect("/updateedit");
     }
     else{
       res.render("updatefailure");
