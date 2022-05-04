@@ -85,13 +85,21 @@ app.post("/edithome", function(req,res){
   resService.findAppointment(req.body).then((appointment)=>{
     appointmentInfo = "";
     if(appointment.length == 0){
-      res.redirect("/");
+      res.render("updatefailure");
     }
     else{
       appointmentInfo = appointment;
       res.redirect("/editinfo");    
     }});
     });
+
+    app.get("/appointments/:date", (req, res) => {
+      resService.appointmentByDate(req.params.date).then((data) => {
+          res.render("datequery", {reservations: data});
+      }).catch((err) => {
+          res.status(404).send("No Appointments on that date")});
+      });
+    
 
 app.get("/editinfo", function(req,res){
   res.render("editinfo", {newAppointment:appointmentInfo});
@@ -103,7 +111,7 @@ app.post("/editinfo", function(req,res){
       res.redirect("/");
     }
     else{
-      res.redirect("/");
+      res.render("updatefailure");
     }
     })
 });

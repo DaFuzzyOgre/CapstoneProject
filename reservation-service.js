@@ -166,6 +166,18 @@ module.exports.findAppointment = async function(appointment){
     })
 })};
 
+module.exports.appointmentByDate = async function(appointment){
+    return new Promise((resolve,reject)=>{
+        console.log(appointment)
+        Reservation.find({date: appointment})
+        .exec()
+        .then((reservation) => {
+         reservation = reservation.map(value => value.toObject()); 
+         resolve(reservation);
+         console.log(reservation);
+    })
+})};
+
 module.exports.updateAppointment = function(appointment){
     return new Promise((resolve,reject)=>{
         console.log(appointment);
