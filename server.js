@@ -6,6 +6,7 @@ var multer = require("multer");
 const bodyParser = require("body-parser");
 const { status } = require('express/lib/response');
 const exphbs = require('express-handlebars');
+let appointmentInfo = "";
 
 app.engine('.hbs', exphbs.engine({ 
   extname: '.hbs',
@@ -81,19 +82,30 @@ app.get("/edithome", function(req,res){
   res.sendFile(path.join(__dirname,"/views/edithome.html"));
 });
 app.post("/edithome", function(req,res){
-  resService.cancelAppt(req.body).then(()=>{
-    res.redirect("/editinfo");
-    }).catch((err) => {
-        res.status(500).send("Unable to find existing reservation");
+  resService.findAppointment(req.body).then((appointment)=>{
+    appointmentInfo = "";
+    if(appointment.length == 0){
+      res.redirect("/");
+    }
+    else{
+      appointmentInfo = appointment;
+      res.redirect("/editinfo");    
+    }});
     });
-});
 
 app.get("/editinfo", function(req,res){
-  res.sendFile(path.join(__dirname,"/views/editinfo.html"));
+  res.render("editinfo", {newAppointment:appointmentInfo});
 });
 
 app.post("/editinfo", function(req,res){
-  resService.addReservation(req.body , res.redirect("/views/editinfo.html"));
+  resService.updateAppointment(req.body).then((data) => {
+    if (data.matchedCount = 1){
+      res.redirect("/");
+    }
+    else{
+      res.redirect("/");
+    }
+    })
 });
 app.get("/cancelationfailure", function(req, res){
   res.render("cancelationfailure");});

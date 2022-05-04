@@ -1,0 +1,90 @@
+   {{#each newAppointment}}
+<body>
+  <h1>Edit Study Room Reservation(s)</h1>
+
+  <p>Please edit the following information you would like to change:</p>
+
+  <form method="post" action="/editinfo">
+ 
+    <fieldset>
+    <input type="hidden" id="fname" name="fname" value="{{fname}}" required>
+    <input type="hidden" id="lname" name="lname" value="{{lname}}" required>
+    <input type="hidden" id="idnum" name="idnum" value="{{idnum}}"required>
+    <input type="hidden" id="email" name="email"value="{{email}}" required>
+    <input type="hidden" id="confirmation" name="confirmation"  value="{{confirmation}}" required>
+    <input type="hidden" id="reservation" name="reservation" value="{{reservation}}" required><br><br>
+    <label for="date" class="rvt-label">Enter the date of the study room reservation:</label><br>
+    <input type="date" id="date" name="date" value="{{date}}" required><br></br>
+    <script>
+        var date  = new Date();
+        console.log(date)
+        var dateDay = date.getDate();
+        if (dateDay < 10)
+        {
+            dateDay = "0" + dateDay;
+        }
+        var dateMonth = date.getMonth() + 1;
+        if (dateMonth < 10)
+        {
+            dateMonth = "0" + dateMonth;
+        }
+        var dateYear = date.getFullYear();
+        var currDate = dateYear + "-" + dateMonth + "-" + dateDay;
+        document.getElementById("date").setAttribute("min", currDate);
+        let futureMonth = date.getMonth() + 3;
+        if (futureMonth <10)
+        {
+            futureMonth = "0" + futureMonth;
+        }
+        else if (futureMonth = 13)
+        {
+            futureMonth = 1;
+        }
+        else if (futureMonth = 14)
+        {
+            futureMonth = 2;
+        }
+        console.log(futureMonth);
+        var futureDate = dateYear + "-" + futureMonth + "-" + dateDay;
+        document.getElementById("date").setAttribute("max", futureDate);
+    </script>
+  <label for="time" class="rvt-label">Select the time of the reservation:</label><br>
+  <input type="time" id="time" name="time" class="rvt-label" value="{{time}}" required><br></br>
+  <label for="numpeople" class="rvt-label">Select the number of people in the reservation:</label><br>
+      <input list="numpeople" name="numpeople" placeholder="Select people in reservation" value ="{{numpeople}}" required><br></br>
+      <datalist id="numpeople">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        </datalist>
+  
+      <label for="studyrooms" class="rvt-label">Select a study room number:</label><br>
+      <input list="studyrooms" name="studyrooms" placeholder="Select a study room" value="{{studyrooms}}" required><br></br>
+      <datalist id="studyrooms">
+        <option value="KA116">
+        <option value="KA118">
+        <option value="KA147">
+        <option value="KA149">
+        <option value="KA155">
+        <option value="KA157">
+        <option value="KA220">
+        <option value="KA222">
+        <option value="KA224">
+        <option value="KA226">
+        </datalist>
+        
+    </br>
+    </fieldset>
+
+    <input type="submit" class="rvt-button rvt-button--success" value="Change Reservation Info" />
+  </form>
+  <a href = "/edithome"><button class="rvt-button">Go Back</button></a> 
+  <div>
+    <br>
+  </body>
+      {{/each}}

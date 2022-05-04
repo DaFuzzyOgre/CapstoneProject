@@ -155,3 +155,28 @@ module.exports.nullArray=function(){
        })
        
 })};
+
+module.exports.findAppointment = async function(appointment){
+    return new Promise((resolve,reject)=>{
+        Reservation.find({confirmation: appointment.confirmation, idnum: appointment.idnum})
+        .exec()
+        .then((reservation) => {
+         reservation = reservation.map(value => value.toObject()); 
+         resolve(reservation);
+    })
+})};
+
+module.exports.updateAppointment = function(appointment){
+    return new Promise((resolve,reject)=>{
+        console.log(appointment);
+        Reservation.updateOne({confirmation: appointment.confirmation}, {date: appointment.date, time: appointment.time,
+        numpeople: appointment.numpeople, studyrooms: appointment.studyrooms}, function(err, result){
+            if (err){
+                reject("Error Finding Data")
+            }
+            else {
+                resolve(result);  
+                console.log(result);        
+            }
+    });
+})};
